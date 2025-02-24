@@ -1,5 +1,17 @@
 <template>
   <div>
+    <!-- Добавленная секция TON Connect -->
+    <div class="ton-connect-section">
+        <h2>TON Кошелек</h2>
+        <div v-if="account">
+          <p>Адрес: {{ shortAddress(account.address) }}</p>
+          <p>Баланс: {{ tonBalance }} TON</p>
+          <button @click="disconnectWallet">Отключить кошелек</button>
+        </div>
+        <button v-else @click="connectWallet">Подключить TON кошелек</button>
+      </div>
+
+      <button @click="logoutUser">Выйти</button>
     <div v-if="user">
       <h1>Добро пожаловать, {{ userName }}! Баланс: {{ userBalance }}</h1>
       <button @click="logoutUser">Выйти</button>
@@ -51,6 +63,7 @@
 
 <script>
 import { createClient } from '@supabase/supabase-js';
+import { TonConnectUI } from '@tonconnect/ui';
 
 const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2ZHBlemN3a2tsaGx4YWZweWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNjE0MDcsImV4cCI6MjA1NTczNzQwN30.lhw8XGLjw2GBhSLwuUaMGlz67vt9k1MztLUnRE7qBGM";
@@ -73,13 +86,57 @@ export default {
       loginError: null,
       user: null,
       userName: null,
+      tonConnectUI: null,
+      account: null,
+      tonBalance: '0.00',
       userBalance: 0 // Добавляем свойство для хранения баланса пользователя
     };
   },
   mounted() {
     this.checkSession();
+    this.checkSession();
+    this.initTonConnect();
   },
   methods: {
+
+    async initTonConnect() {
+      this.tonConnectUI = new TonConnectUI({
+        manifestUrl: 'https://your-domain.com/tonconnect-manifest.json',
+        buttonRootId: 'ton-connect-button'
+      });
+
+      this.tonConnectUI.onStatusChange(wallet => {
+        this.account = wallet?.account;
+        if (wallet?.account) {
+          this.fetchTonBalance(wallet.account.address);
+        } else {
+          this.tonBalance = '0.00';
+        }
+      });
+    },
+
+    shortAddress(address) {
+      return address ? `${address.slice(0, 4)}...${address.slice(-4)}` : '';
+    },
+
+    connectWallet() {
+      this.tonConnectUI.connect();
+    },
+
+    disconnectWallet() {
+      this.tonConnectUI.disconnect();
+    },
+
+    async fetchTonBalance(address) {
+      try {
+        const response = await fetch(`https://tonapi.io/v2/accounts/${address}`);
+        const data = await response.json();
+        this.tonBalance = (data.balance / 1000000000).toFixed(2);
+      } catch (error) {
+        console.error('Ошибка получения баланса:', error);
+        this.tonBalance = 'Ошибка';
+      }
+    },
     async checkSession() {
       try {
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
@@ -281,5 +338,27 @@ export default {
 .error-message {
   color: red;
   margin-top: 10px;
+}
+
+/* Добавленные стили для TON Connect */
+.ton-connect-section {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.ton-connect-section h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.ton-connect-section button {
+  background-color: #0088cc;
+  margin: 5px 0;
+}
+
+.ton-connect-section button:hover {
+  background-color: #0077b3;
 }
 </style>
