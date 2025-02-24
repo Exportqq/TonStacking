@@ -37,6 +37,11 @@
             </div>
 
             <button class="register-btn" type="submit">Done</button>
+            <NuxtLink to="login">
+              <p class="auth-txt">
+                You already have an account ?
+              </p>
+            </NuxtLink>
           </form>
         </div>
     </div>
@@ -255,7 +260,6 @@ button {
     height: 1000px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .register-form {
@@ -267,6 +271,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 100px 0px 0px 0px;
 }
 
 .form-placholder {
@@ -279,7 +284,7 @@ button {
   text-align: left;
   height: 21px;
   width: 284px;
-  margin: 0px 0px 6px 0px;
+  margin: 25px 0px 6px 0px;
 }
 
 .form-block {
@@ -320,7 +325,7 @@ input {
   text-align: center;
   width: 227px;
   height: 40px;
-  margin: 0px 0px 44px 0px;
+  margin: 0px 0px 19px 0px;
 }
 
 .register-btn {
@@ -342,5 +347,17 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.auth-txt {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 295px;
+  height: 17px;
+  margin: 4px 0px 0px 0px;
 }
 </style>
