@@ -1,5 +1,7 @@
 <template>
-
+  <Head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  </Head>
     <div>
       <div class="backround">
         <div class="header-navigation">
@@ -231,6 +233,11 @@ export default {
 </script>
 
 <style>
+html {
+  overflow: hidden;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -241,7 +248,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  height: 812px;
+  height: 100%;
   background: linear-gradient(180.00deg, rgb(14, 23, 88),rgb(12, 13, 14) 20.312%),rgb(12, 13, 14);
 }
 

@@ -197,7 +197,7 @@ button {
 .backround {
     background: rgb(12, 13, 14);
     width: 100%;
-    height: 1000px;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
@@ -300,4 +300,9 @@ input {
   height: 17px;
   margin: 4px 0px 0px 0px;
 }
+
+.html {
+  overflow: hidden;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
+} 
 </style>
