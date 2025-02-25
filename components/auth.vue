@@ -302,7 +302,6 @@ input {
 }
 
 .html {
-  overflow: hidden;
   touch-action: manipulation; /* Отключает двойной тап и зум */
 } 
 </style>
