@@ -58,7 +58,7 @@
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
                   </li>
                 </ul>
-                <ul style="margin: 3px 14px 0px 0px;">
+                <ul style="margin: 3px 24px 0px 0px;">
                   <li>
                     <p class="ton-procent">36%</p>
                   </li>
@@ -68,7 +68,7 @@
                 </ul>
                 <ul class="ton-list">
                   <li>
-                    <p class="ton-price">180</p>
+                    <p class="ton-price">245</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
@@ -87,15 +87,15 @@
               <div style="display: flex;flex-direction: column;align-items: center;">
                 <ul class="ton-list">
                   <li>
-                    <p class="ton-price">180</p>
+                    <p class="ton-price">250</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
                   </li>
                 </ul>
-                <ul style="margin: 3px 14px 0px 0px;">
+                <ul style="margin: 3px 24px 0px 0px;">
                   <li>
-                    <p class="ton-procent">36%</p>
+                    <p class="ton-procent">44%</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
@@ -103,7 +103,7 @@
                 </ul>
                 <ul class="ton-list">
                   <li>
-                    <p class="ton-price">180</p>
+                    <p class="ton-price">360</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
@@ -115,22 +115,22 @@
 
           <div class="stake-block">
             <div style="float: left;">
-              <p class="stake-block-txt">Staking for 21 days</p>
+              <p class="stake-block-txt">Staking for 14 days</p>
               <button class="stake-block-btn">Stake</button>
             </div>
             <div style="float: left;">
               <div style="display: flex;flex-direction: column;align-items: center;">
                 <ul class="ton-list">
                   <li>
-                    <p class="ton-price">180</p>
+                    <p class="ton-price">390</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
                   </li>
                 </ul>
-                <ul style="margin: 3px 14px 0px 0px;">
+                <ul style="margin: 3px 24px 0px 0px;">
                   <li>
-                    <p class="ton-procent">36%</p>
+                    <p class="ton-procent">51%</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
@@ -138,7 +138,7 @@
                 </ul>
                 <ul class="ton-list">
                   <li>
-                    <p class="ton-price">180</p>
+                    <p class="ton-price">590</p>
                   </li>
                   <li>
                     <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">

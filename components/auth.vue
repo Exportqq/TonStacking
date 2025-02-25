@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="backround">
+        <div class="backrounds">
           <form class="form-settings" id="registration-form" @submit.prevent="loginUser">
             <div class="register-form">
               <p class="register-txt">Authorization</p>
@@ -194,7 +194,7 @@ button {
   border: none;
 }
 
-.backround {
+.backrounds {
     background: rgb(12, 13, 14);
     width: 100%;
     height: 1200px;

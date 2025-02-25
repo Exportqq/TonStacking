@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="backround">
+    <div class="backrounddd">
         <form class="form-settings" id="registration-form" @submit.prevent="submitRequest">
             <div class="register-form">
                 <p class="register-txt">Transaction</p>
@@ -134,7 +134,7 @@ button {
   border: none;
 }
 
-.backround {
+.backrounddd {
     background: rgb(12, 13, 14);
     width: 100%;
     height: 1200px;
