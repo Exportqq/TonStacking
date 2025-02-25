@@ -248,7 +248,7 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(180.00deg, rgb(14, 23, 88),rgb(12, 13, 14) 20.312%),rgb(12, 13, 14);
 }
 
