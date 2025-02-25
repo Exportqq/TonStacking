@@ -1,16 +1,23 @@
 <template>
-    <header>
-      <span>My App with Vue UI</span>
-      <TonConnectButton/>
-    </header>
+    <TonConnectUIProvider :options="options">
+      <!-- Your app -->
+    </TonConnectUIProvider>
   </template>
   
   <script>
-  import { TonConnectButton } from '@townsquarelabs/ui-vue';
+  import { TonConnectUIProvider } from '@townsquarelabs/ui-vue';
   
   export default {
     components: {
-      TonConnectButton
+      TonConnectUIProvider
+    },
+    setup(){
+      const options = {
+        manifestUrl:"https://ton-staker.netlify.app/tonconnect-manifest.json",
+      };
+      return {
+        options
+      }
     }
   }
   </script>
