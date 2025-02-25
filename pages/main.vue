@@ -189,6 +189,7 @@ export default {
     },
 
     async logoutUser() {
+      const router = useRouter()
       try {
         const { error } = await supabase.auth.signOut();
         if (error) {
@@ -198,6 +199,7 @@ export default {
           this.user = null;
           this.userName = null;
           this.userBalance = 0; // Сбрасываем баланс при выходе
+          router.push({ path: "/login" })
         }
       } catch (error) {
         console.error('Общая ошибка при выходе из системы:', error);

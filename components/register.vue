@@ -142,6 +142,7 @@ export default {
 
 
     async registerUser() {
+      const router = useRouter()
       this.registrationError = null;
       this.registrationSuccess = false;
 
@@ -159,6 +160,7 @@ export default {
         if (error) {
           console.error('Ошибка регистрации:', error);
           this.registrationError = error.message;
+          router.push({ path: "/login" })
         } else {
           console.log('Регистрация успешна:', data);
           this.registrationSuccess = true;
@@ -193,47 +195,6 @@ export default {
         alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
       }
     },
-
-    async loginUser() {
-      this.loginError = null;
-      try {
-        const { error, data } = await supabase.auth.signInWithPassword({
-          email: this.loginForm.email,
-          password: this.loginForm.password,
-        });
-
-        if (error) {
-          console.error('Ошибка авторизации:', error);
-          this.loginError = error.message;
-        } else {
-          console.log('Авторизация успешна:', data);
-          this.loginForm = { email: '', password: '' };
-          await this.fetchUser();
-          await this.checkSession();
-        }
-      } catch (error) {
-        console.error('Общая ошибка при авторизации:', error);
-        this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
-      }
-    },
-
-    async logoutUser() {
-      try {
-        const { error } = await supabase.auth.signOut();
-        if (error) {
-          console.error('Ошибка выхода из системы:', error);
-        } else {
-          console.log('Выход из системы успешен');
-          this.user = null;
-          this.userName = null;
-          this.userBalance = 0; // Сбрасываем баланс при выходе
-        }
-      } catch (error) {
-        console.error('Общая ошибка при выходе из системы:', error);
-      } finally {
-        await this.checkSession();
-      }
-    }
   }
 };
 </script>
