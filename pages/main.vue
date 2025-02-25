@@ -237,6 +237,9 @@ export default {
 }
 
 .backround {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
   height: 812px;
   background: linear-gradient(180.00deg, rgb(14, 23, 88),rgb(12, 13, 14) 20.312%),rgb(12, 13, 14);
