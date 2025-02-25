@@ -359,6 +359,7 @@ html {
 
 .backround {
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
