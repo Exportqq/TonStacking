@@ -34,6 +34,154 @@
             </button>
           </div>
         </div>
+
+        <div class="staking-header">
+          <div class="horizontal-line"></div>
+          <p class="stake-txt">Staking</p>
+          <div class="horizontal-line-two"></div>
+        </div>
+        <div style="display: flex;flex-direction: column;align-items: center; overflow: scroll;">
+          <div class="stake-block">
+            <div style="float: left;">
+              <p class="stake-block-txt">Staking for 21 days</p>
+              <button class="stake-block-btn">Stake</button>
+            </div>
+            <div style="float: left;">
+              <div style="display: flex;flex-direction: column;align-items: center;">
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+                <ul style="margin: 0px 14px 0px 0px;">
+                  <li>
+                    <p class="ton-procent">36%</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
+                  </li>
+                </ul>
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="stake-block">
+            <div style="float: left;">
+              <p class="stake-block-txt">Staking for 21 days</p>
+              <button class="stake-block-btn">Stake</button>
+            </div>
+            <div style="float: left;">
+              <div style="display: flex;flex-direction: column;align-items: center;">
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+                <ul style="margin: 0px 14px 0px 0px;">
+                  <li>
+                    <p class="ton-procent">36%</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
+                  </li>
+                </ul>
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="stake-block">
+            <div style="float: left;">
+              <p class="stake-block-txt">Staking for 21 days</p>
+              <button class="stake-block-btn">Stake</button>
+            </div>
+            <div style="float: left;">
+              <div style="display: flex;flex-direction: column;align-items: center;">
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+                <ul style="margin: 0px 14px 0px 0px;">
+                  <li>
+                    <p class="ton-procent">36%</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
+                  </li>
+                </ul>
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="stake-block">
+            <div style="float: left;">
+              <p class="stake-block-txt">Staking for 21 days</p>
+              <button class="stake-block-btn">Stake</button>
+            </div>
+            <div style="float: left;">
+              <div style="display: flex;flex-direction: column;align-items: center;">
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+                <ul style="margin: 0px 14px 0px 0px;">
+                  <li>
+                    <p class="ton-procent">36%</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
+                  </li>
+                </ul>
+                <ul class="ton-list">
+                  <li>
+                    <p class="ton-price">180</p>
+                  </li>
+                  <li>
+                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -343,4 +491,119 @@ button {
   margin: 29px 0px 0px 0px;
 }
 
+.staking-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.staking-header {
+  display: flex;
+  align-items: center; /* Выравнивание элементов по центру по вертикали */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin: 60px 0px 20px 0px;
+}
+
+.horizontal-line {
+  flex-grow: 1; /* Линии занимают все доступное пространство */
+  height: 1px;
+  background: linear-gradient(90deg, rgb(21, 53, 244), rgba(14, 21, 74, 0) 100%);
+}
+
+.horizontal-line-two {
+  transform: rotate(180deg);
+  flex-grow: 1; /* Линии занимают все доступное пространство */
+  height: 1px;
+  background: linear-gradient(90deg, rgb(21, 53, 244), rgba(14, 21, 74, 0) 100%);
+}
+
+.horizontal-line:last-child {
+  /* Разворачиваем градиент для правой линии */
+  background: linear-gradient(270deg, rgb(21, 53, 244), rgba(14, 21, 74, 0) 100%);
+}
+
+.stake-txt {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 20px; /* Отступы от текста до линий */
+  padding: 0;
+  line-height: 1; /* Уменьшаем line-height для лучшего выравнивания */
+}
+
+.stake-block {
+  border-radius: 16px;
+  width: 339px;
+  height: 100px;
+  background: rgb(32, 34, 43);
+  display: flex;
+  align-items: center;
+  margin: 15px 0px 0px 0px;
+}
+
+.stake-block-txt {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: left;
+  width: 244px;
+  height: 21px;
+  margin: 0px 0px 0px 14px;
+}
+
+.stake-block-btn {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 67px;
+  height: 18px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 37px 0px 0px 14px;
+  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+}
+
+.ton-price {
+  color: rgb(255, 255, 255);
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+.ton-list {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.ton-procent {
+  color: rgb(109, 188, 53);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  width: 22px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
 </style>
