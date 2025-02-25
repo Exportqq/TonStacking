@@ -2,17 +2,36 @@
 
     <div>
       <div class="backround">
-        <ul>
-          <li>
-            <img src="public/user.svg">
-          </li>
-          <li>
-            <p class="user-name">{{ userName }}</p>
-          </li>
-          <li>
-            <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg"></button>
-          </li>
-        </ul>
+        <div class="header-navigation">
+          <div class="header-block">
+            <ul style="display: flex; align-items: center; margin-top: 15px;">
+              <li>
+                <img src="public/user.svg">
+              </li>
+              <li>
+                <p class="user-name">{{ userName }}</p>
+              </li>
+              <li>
+                <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg"></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <p class="balance">{{ userBalance }} TON</p>
+          <div class="transaction-navigation">
+            <button class="transaction-btn">
+              <img src="public/send.svg">
+              <p class="transaction-txt">Send</p>
+            </button>
+            <div class="vertical-line"></div>
+            <button class="transaction-btn">
+              <img src="public/wallet.svg">
+              <p class="transaction-txt">Receive</p>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -217,8 +236,6 @@ export default {
   padding: 0px;
 }
 
-
-
 .backround {
   width: 100%;
   height: 812px;
@@ -237,7 +254,7 @@ button {
 
 .user-name {
   color: rgb(255, 255, 255);
-  font-family: 'Outfit';
+  font-family: 'Outfit', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 25px;
@@ -245,13 +262,75 @@ button {
   text-align: left;
   width: 54px;
   height: 30px;
+  margin: 0px 0px 0px 8px;
 }
 
 .log-out-img {
   width: 24px;
   height: 24px;
+  margin: 0px 0px 0px 228px;
 }
 
+.header-block {
+  width: 345px;
+}
 
+.header-navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.balance {
+  color: rgb(255, 255, 255);
+  font-family: 'Outfit', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 60px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  margin: 59px 0px 0px 0px;
+}
+
+.transaction-txt {
+  width: 100%;
+  height: 20px;
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -1%;
+  text-align: center;
+  margin: 6px 0px 0px 0px;
+}
+
+.transaction-btn {
+  width: 85px;
+  height: 76px;
+  border-radius: 24px;
+  background: rgb(23, 24, 28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  float: left;
+}
+
+.vertical-line {
+  width: 1px;
+  background: rgb(23, 24, 28);
+  height: 50px;
+  float: left;
+  margin: 0px 20px 0px 20px;
+}
+
+.transaction-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 29px 0px 0px 0px;
+}
 
 </style>
