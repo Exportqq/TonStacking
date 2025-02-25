@@ -197,7 +197,7 @@ button {
 .backround {
     background: rgb(12, 13, 14);
     width: 100%;
-    height: 100vh;
+    height: 1200px;
     display: flex;
     justify-content: center;
 }
