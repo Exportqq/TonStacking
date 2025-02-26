@@ -193,6 +193,11 @@ export default {
       referrerCode: '' // Для хранения кода реферера при регистрации
     };
   },
+  name: 'register',
+  async asyncData({ query }) {
+    const ref = query.ref
+    // Обработка параметра ref
+  },
   mounted() {
     this.checkSession();
     // Получаем код реферера из URL, если он есть
