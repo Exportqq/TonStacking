@@ -60,207 +60,211 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default {
-data() {
-  return {
-    registrationForm: {
-      name: '',
-      email: '',
-      password: ''
-    },
-    loginForm: {
-      email: '',
-      password: ''
-    },
-    registrationSuccess: false,
-    registrationError: null,
-    loginError: null,
-    user: null,
-    userName: null,
-    userBalance: 0,
-    referrerCode: '' // Добавляем поле для реферального кода
-  };
-},
-mounted() {
-  this.checkSession();
-  
-  // Получаем код реферера из URL, если он есть
-  const urlParams = new URLSearchParams(window.location.search);
-  this.referrerCode = urlParams.get('ref') || '';
-},
-methods: {
-  async checkSession() {
-    try {
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-
-      if (sessionError) {
-        console.error("Ошибка при получении сессии:", sessionError);
-        return;
-      }
-
-      if (session) {
-        await this.fetchUser();
-      } else {
-        this.user = null;
-        this.userName = null;
-        this.userBalance = 0;
-      }
-    } catch (error) {
-      console.error("Общая ошибка при проверке сессии:", error);
-    }
+  data() {
+    return {
+      registrationForm: {
+        name: '',
+        email: '',
+        password: ''
+      },
+      loginForm: {
+        email: '',
+        password: ''
+      },
+      registrationSuccess: false,
+      registrationError: null,
+      loginError: null,
+      user: null,
+      userName: null,
+      userBalance: 0,
+      referrerCode: '' // Поле для реферального кода
+    };
   },
+  mounted() {
+    this.checkSession();
 
-  async fetchUser() {
-    try {
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
-
-      if (userError) {
-        console.error("Ошибка при получении данных пользователя:", userError);
-        return;
-      }
-
-      if (user) {
-        this.user = user;
-        this.userName = user.user_metadata.full_name || user.email;
-        this.userEmail = user.email;
-        await this.fetchUserProfile(user.id);
-      }
-    } catch (error) {
-      console.error("Общая ошибка при получении пользователя:", error);
-    }
+    // Получаем код реферера из URL, если он есть
+    const urlParams = new URLSearchParams(window.location.search);
+    this.referrerCode = urlParams.get('ref') || '';
   },
+  methods: {
+    async checkSession() {
+      try {
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
 
-  async fetchUserProfile(userId) {
-    try {
-      const { data, error } = await supabase
-        .from('user_profiles')
-        .select('balance')
-        .eq('id', userId)
-        .single();
+        if (sessionError) {
+          console.error("Ошибка при получении сессии:", sessionError);
+          return;
+        }
 
-      if (error) {
-        console.error("Ошибка при получении профиля пользователя:", error);
+        if (session) {
+          await this.fetchUser();
+        } else {
+          this.user = null;
+          this.userName = null;
+          this.userBalance = 0;
+        }
+      } catch (error) {
+        console.error("Общая ошибка при проверке сессии:", error);
+      }
+    },
+
+    async fetchUser() {
+      try {
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+        if (userError) {
+          console.error("Ошибка при получении данных пользователя:", userError);
+          return;
+        }
+
+        if (user) {
+          this.user = user;
+          this.userName = user.user_metadata.full_name || user.email;
+          this.userEmail = user.email;
+          await this.fetchUserProfile(user.id);
+        }
+      } catch (error) {
+        console.error("Общая ошибка при получении пользователя:", error);
+      }
+    },
+
+    async fetchUserProfile(userId) {
+      try {
+        const { data, error } = await supabase
+          .from('user_profiles')
+          .select('balance, referred_by')
+          .eq('id', userId)
+          .single();
+
+        if (error) {
+          console.error("Ошибка при получении профиля пользователя:", error);
+          this.userBalance = 'Ошибка загрузки';
+        } else if (data) {
+          this.userBalance = data.balance || 0;
+          this.referredBy = data.referred_by || ''; // Сохраняем реферальный код
+        } else {
+          this.userBalance = 0;
+          this.referredBy = ''; // Сохраняем реферальный код
+        }
+      } catch (error) {
+        console.error("Общая ошибка при получении профиля пользователя:", error);
         this.userBalance = 'Ошибка загрузки';
-      } else if (data) {
-        this.userBalance = data.balance || 0;
-      } else {
-        this.userBalance = 0;
+        this.referredBy = ''; // Сохраняем реферальный код
       }
-    } catch (error) {
-      console.error("Общая ошибка при получении профиля пользователя:", error);
-      this.userBalance = 'Ошибка загрузки';
-    }
-  },
+    },
 
-  // Генерация уникального реферального кода
-  generateReferralCode() {
-    return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
-  },
+    // Генерация уникального реферального кода
+    generateReferralCode() {
+      return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
+    },
 
-  async registerUser() {
-    const router = useRouter()
-    this.registrationError = null;
-    this.registrationSuccess = false;
+    async registerUser() {
+      const router = useRouter()
+      this.registrationError = null;
+      this.registrationSuccess = false;
 
-    try {
-      const { error, data } = await supabase.auth.signUp({
-        email: this.registrationForm.email,
-        password: this.registrationForm.password,
-        options: {
-          data: {
-            full_name: this.registrationForm.name,
+      try {
+        const { error, data } = await supabase.auth.signUp({
+          email: this.registrationForm.email,
+          password: this.registrationForm.password,
+          options: {
+            data: {
+              full_name: this.registrationForm.name,
+            }
+          }
+        });
+
+        if (error) {
+          console.error('Ошибка регистрации:', error);
+          this.registrationError = error.message;
+          router.push({ path: "/login" })
+        } else {
+          console.log('Регистрация успешна:', data);
+          this.registrationSuccess = true;
+
+          // Создаем профиль пользователя с реферальным кодом
+          await this.createUserProfile(data.user.id, this.registrationForm.name);
+
+          this.registrationForm = { name: '', email: '', password: '' };
+
+          // Перенаправляем на страницу входа
+          router.push({ path: "/login" })
+        }
+      } catch (error) {
+        console.error('Общая ошибка при регистрации:', error);
+        this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+      }
+    },
+
+    async createUserProfile(userId, userName) {
+      try {
+        // Генерируем реферальный код для нового пользователя
+        const referralCode = this.generateReferralCode();
+
+        const { error } = await supabase
+          .from('user_profiles')
+          .insert([{
+            id: userId,
+            full_name: userName,
+            balance: 0,
+            referral_code: referralCode,
+            referral_count: 0,
+            referred_by: this.referrerCode // Сохраняем реферальный код
+          }]);
+
+        if (error) {
+          console.error("Ошибка при создании профиля пользователя:", error);
+          alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+        } else {
+          console.log("Профиль пользователя создан успешно");
+
+          // Обрабатываем реферальный код, если он был в URL
+          if (this.referrerCode) {
+            await this.incrementReferralCount(this.referrerCode);
           }
         }
-      });
-
-      if (error) {
-        console.error('Ошибка регистрации:', error);
-        this.registrationError = error.message;
-        router.push({ path: "/login" })
-      } else {
-        console.log('Регистрация успешна:', data);
-        this.registrationSuccess = true;
-        
-        // Создаем профиль пользователя с реферальным кодом
-        await this.createUserProfile(data.user.id, this.registrationForm.name);
-        
-        this.registrationForm = { name: '', email: '', password: '' };
-        
-        // Перенаправляем на страницу входа
-        router.push({ path: "/login" })
-      }
-    } catch (error) {
-      console.error('Общая ошибка при регистрации:', error);
-      this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
-    }
-  },
-
-  async createUserProfile(userId, userName) {
-    try {
-      // Генерируем реферальный код для нового пользователя
-      const referralCode = this.generateReferralCode();
-      
-      const { error } = await supabase
-        .from('user_profiles')
-        .insert([{ 
-          id: userId, 
-          full_name: userName, 
-          balance: 0,
-          referral_code: referralCode,
-          referral_count: 0
-        }]);
-
-      if (error) {
-        console.error("Ошибка при создании профиля пользователя:", error);
+      } catch (error) {
+        console.error("Общая ошибка при создании профиля пользователя:", error);
         alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
-      } else {
-        console.log("Профиль пользователя создан успешно");
-        
-        // Обрабатываем реферальный код, если он был в URL
-        if (this.referrerCode) {
-          await this.incrementReferralCount(this.referrerCode);
-        }
       }
-    } catch (error) {
-      console.error("Общая ошибка при создании профиля пользователя:", error);
-      alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
-    }
-  },
-  
-  // Увеличиваем счетчик рефералов у пригласившего пользователя
-  async incrementReferralCount(referralCode) {
-    try {
-      // Находим пользователя по реферальному коду
-      const { data: referrer, error: fetchError } = await supabase
-        .from('user_profiles')
-        .select('id, referral_count')
-        .eq('referral_code', referralCode)
-        .single();
+    },
 
-      if (fetchError) {
-        console.error("Ошибка при поиске реферера:", fetchError);
-        return;
-      }
-
-      if (referrer) {
-        // Увеличиваем счетчик рефералов на 1
-        const newCount = (referrer.referral_count || 0) + 1;
-        
-        const { error: updateError } = await supabase
+    // Увеличиваем счетчик рефералов у пригласившего пользователя
+    async incrementReferralCount(referralCode) {
+      try {
+        // Находим пользователя по реферальному коду
+        const { data: referrer, error: fetchError } = await supabase
           .from('user_profiles')
-          .update({ referral_count: newCount })
-          .eq('id', referrer.id);
+          .select('id, referral_count')
+          .eq('referral_code', referralCode)
+          .single();
 
-        if (updateError) {
-          console.error("Ошибка при обновлении счетчика рефералов:", updateError);
-        } else {
-          console.log("Счетчик рефералов успешно обновлен");
+        if (fetchError) {
+          console.error("Ошибка при поиске реферера:", fetchError);
+          return;
         }
+
+        if (referrer) {
+          // Увеличиваем счетчик рефералов на 1
+          const newCount = (referrer.referral_count || 0) + 1;
+
+          const { error: updateError } = await supabase
+            .from('user_profiles')
+            .update({ referral_count: newCount })
+            .eq('id', referrer.id);
+
+          if (updateError) {
+            console.error("Ошибка при обновлении счетчика рефералов:", updateError);
+          } else {
+            console.log("Счетчик рефералов успешно обновлен");
+          }
+        }
+      } catch (error) {
+        console.error("Общая ошибка при обновлении счетчика рефералов:", error);
       }
-    } catch (error) {
-      console.error("Общая ошибка при обновлении счетчика рефералов:", error);
     }
   }
-}
 };
 </script>
 
