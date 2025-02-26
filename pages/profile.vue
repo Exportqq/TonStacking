@@ -448,7 +448,7 @@ export default {
 }
 
 .promote-block {
-    background-image: url(tons.png);
+    background-image: url(public/tons.png);
     width: 295px;
     height: 114px;
     display: flex;
