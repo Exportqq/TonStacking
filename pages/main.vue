@@ -35,6 +35,16 @@
           </div>
         </div>
 
+        <!-- Добавлен блок для реферальной системы -->
+        <div class="referral-block">
+          <p class="referral-title">Invite friends</p>
+          <p class="referral-count">Friends invited: {{ referralCount }}</p>
+          <div class="referral-link-container">
+            <input type="text" class="referral-link" :value="referralLink" readonly />
+            <button @click="copyReferralLink" class="copy-btn">Copy</button>
+          </div>
+        </div>
+
         <div class="staking-header">
           <div class="horizontal-line"></div>
           <p class="stake-txt">Staking</p>
@@ -150,7 +160,6 @@
         </div>
       </div>
     </div>
-
 </template>
 
 <script>
@@ -177,11 +186,18 @@ export default {
       loginError: null,
       user: null,
       userName: null,
-      userBalance: 0 // Добавляем свойство для хранения баланса пользователя
+      userBalance: 0,
+      referralCount: 0,
+      referralCode: '',
+      referralLink: '',
+      referrerCode: '' // Для хранения кода реферера при регистрации
     };
   },
   mounted() {
     this.checkSession();
+    // Получаем код реферера из URL, если он есть
+    const urlParams = new URLSearchParams(window.location.search);
+    this.referrerCode = urlParams.get('ref') || '';
   },
   methods: {
     async checkSession() {
@@ -198,7 +214,10 @@ export default {
         } else {
           this.user = null;
           this.userName = null;
-          this.userBalance = 0; // Сбрасываем баланс при отсутствии пользователя
+          this.userBalance = 0;
+          this.referralCount = 0;
+          this.referralCode = '';
+          this.referralLink = '';
         }
       } catch (error) {
         console.error("Общая ошибка при проверке сессии:", error);
@@ -217,7 +236,7 @@ export default {
         if (user) {
           this.user = user;
           this.userName = user.user_metadata.full_name || user.email;
-          await this.fetchUserProfile(user.id); // Получаем профиль пользователя и баланс
+          await this.fetchUserProfile(user.id);
         }
       } catch (error) {
         console.error("Общая ошибка при получении пользователя:", error);
@@ -227,25 +246,48 @@ export default {
     async fetchUserProfile(userId) {
       try {
         const { data, error } = await supabase
-          .from('user_profiles') // Замените 'user_profiles' на имя вашей таблицы профилей
-          .select('balance')
-          .eq('id', userId) // Фильтруем по user.id (из auth.users)
+          .from('user_profiles')
+          .select('balance, referral_code, referral_count')
+          .eq('id', userId)
           .single();
 
         if (error) {
           console.error("Ошибка при получении профиля пользователя:", error);
-          this.userBalance = 'Ошибка загрузки'; // Обработка ошибки баланса
+          this.userBalance = 'Ошибка загрузки';
         } else if (data) {
-          this.userBalance = data.balance || 0; // Используем полученный баланс или 0 по умолчанию
+          this.userBalance = data.balance || 0;
+          this.referralCode = data.referral_code || '';
+          this.referralCount = data.referral_count || 0;
+          
+          // Создаем реферальную ссылку
+          const baseUrl = window.location.origin;
+          this.referralLink = `${baseUrl}/register?ref=${this.referralCode}`;
         } else {
-          this.userBalance = 0; // Профиль не найден, устанавливаем баланс в 0
+          this.userBalance = 0;
+          this.referralCount = 0;
+          this.referralLink = '';
         }
       } catch (error) {
         console.error("Общая ошибка при получении профиля пользователя:", error);
-        this.userBalance = 'Ошибка загрузки'; // Общая ошибка при загрузке баланса
+        this.userBalance = 'Ошибка загрузки';
       }
     },
 
+    // Метод для копирования реферальной ссылки в буфер обмена
+    async copyReferralLink() {
+      try {
+        await navigator.clipboard.writeText(this.referralLink);
+        alert('Реферальная ссылка скопирована!');
+      } catch (err) {
+        console.error('Не удалось скопировать ссылку: ', err);
+        alert('Не удалось скопировать ссылку. Попробуйте скопировать вручную.');
+      }
+    },
+
+    // Генерация уникального реферального кода
+    generateReferralCode() {
+      return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
+    },
 
     async registerUser() {
       this.registrationError = null;
@@ -268,10 +310,16 @@ export default {
         } else {
           console.log('Регистрация успешна:', data);
           this.registrationSuccess = true;
-          this.registrationForm = { name: '', email: '', password: '' };
-
-          // Создаем профиль пользователя в 'user_profiles' таблице после успешной регистрации
+          
+          // Создаем профиль пользователя с реферальным кодом
           await this.createUserProfile(data.user.id, this.registrationForm.name);
+          
+          // Обрабатываем реферальный код, если он был в URL
+          if (this.referrerCode) {
+            await this.incrementReferralCount(this.referrerCode);
+          }
+          
+          this.registrationForm = { name: '', email: '', password: '' };
         }
       } catch (error) {
         console.error('Общая ошибка при регистрации:', error);
@@ -281,15 +329,20 @@ export default {
 
     async createUserProfile(userId, userName) {
       try {
+        const referralCode = this.generateReferralCode();
+        
         const { error } = await supabase
-          .from('user_profiles') // Замените 'user_profiles' на имя вашей таблицы профилей
-          .insert([{ id: userId, full_name: userName, balance: 0 }]); // Имя можно сохранить и в профиле, если нужно
+          .from('user_profiles')
+          .insert([{ 
+            id: userId, 
+            full_name: userName, 
+            balance: 0,
+            referral_code: referralCode,
+            referral_count: 0
+          }]);
 
         if (error) {
           console.error("Ошибка при создании профиля пользователя:", error);
-          // Регистрация пользователя в Auth успешна, но создание профиля не удалось.
-          // Вам нужно решить, как обрабатывать такую ситуацию.
-          // Например, можно удалить пользователя из Auth или показать сообщение об ошибке и попросить пользователя связаться с поддержкой.
           alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
         } else {
           console.log("Профиль пользователя создан успешно");
@@ -297,6 +350,41 @@ export default {
       } catch (error) {
         console.error("Общая ошибка при создании профиля пользователя:", error);
         alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+      }
+    },
+
+    // Увеличиваем счетчик рефералов у пригласившего пользователя
+    async incrementReferralCount(referralCode) {
+      try {
+        // Находим пользователя по реферальному коду
+        const { data: referrer, error: fetchError } = await supabase
+          .from('user_profiles')
+          .select('id, referral_count')
+          .eq('referral_code', referralCode)
+          .single();
+
+        if (fetchError) {
+          console.error("Ошибка при поиске реферера:", fetchError);
+          return;
+        }
+
+        if (referrer) {
+          // Увеличиваем счетчик рефералов на 1
+          const newCount = (referrer.referral_count || 0) + 1;
+          
+          const { error: updateError } = await supabase
+            .from('user_profiles')
+            .update({ referral_count: newCount })
+            .eq('id', referrer.id);
+
+          if (updateError) {
+            console.error("Ошибка при обновлении счетчика рефералов:", updateError);
+          } else {
+            console.log("Счетчик рефералов успешно обновлен");
+          }
+        }
+      } catch (error) {
+        console.error("Общая ошибка при обновлении счетчика рефералов:", error);
       }
     },
 
@@ -333,7 +421,10 @@ export default {
           console.log('Выход из системы успешен');
           this.user = null;
           this.userName = null;
-          this.userBalance = 0; // Сбрасываем баланс при выходе
+          this.userBalance = 0;
+          this.referralCount = 0;
+          this.referralCode = '';
+          this.referralLink = '';
           router.push({ path: "/login" })
         }
       } catch (error) {
@@ -458,6 +549,60 @@ button {
   margin: 29px 0px 0px 0px;
 }
 
+/* Стили для реферальной системы */
+.referral-block {
+  width: 339px;
+  background: rgb(32, 34, 43);
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.referral-title {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.referral-count {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.referral-link-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.referral-link {
+  flex: 1;
+  background: rgb(23, 24, 28);
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.copy-btn {
+  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .staking-header {
   display: flex;
   align-items: center;
@@ -472,7 +617,7 @@ button {
   width: 100%;
   margin: 0;
   padding: 0;
-  margin: 60px 0px 20px 0px;
+  margin: 30px 0px 20px 0px;
 }
 
 .horizontal-line {
