@@ -1,52 +1,68 @@
 <template>
     <div>
-        <div class="profile-backround">
-            <div class="profile-block">
-                <img class="profile-img" src="public/user.svg">
-                <p class="profile-name">{{ userName }}</p>
-                <p class="profile-email">{{ userEmail }}</p>
-                <div class="support">
-                    <a href="/">
-                        <div style="display: flex;">
-                            <img style="float: left;" src="public/telegram.svg">
-                            <p style="float: left;" class="support-txt">Support</p>
-                            <img style="float: left;" src="public/arrow.svg"> 
-                        </div>
-                    </a>
+        <!-- Показываем только спиннер, если идет загрузка -->
+        <Transition name="fade">
+            <div v-if="isLoading" class="loading-container">
+                <div id="app">
+                    <atom-spinner
+                        :animation-duration="1200"
+                        :size="60"
+                        :color="'#25A3E2'"
+                    />
                 </div>
-                <p class="promote-txt">Referral promotion</p>
-                <div class="promote-block">
-                    <div style="height: 20px;display: flex;width: 120px;align-items: center; margin: 0px 0px 0px 43px;">
-                        <div style="float: left;">
-                            <img src="public/path.svg">
-                        </div>
-                        <div style="float: left;">
-                            <p class="promote-name">Promotion</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="promote-comment">If you invite 5 friends who stake their assets, you will receive 150 TON</p>
-                    </div>
-                </div>
+            </div>
+        </Transition>
 
-
-                <div class="referral-block">
-                    <p class="referral-title">Invite friends</p>
-                    <p class="referral-count">Friends invited: {{ referralCount }}</p>
-                    <div class="referral-link-container">
-                        <input type="text" class="referral-link" :value="referralLink" readonly />
-                        <button @click="copyReferralLink" class="copy-btn">Copy</button>
+        <!-- Показываем основной контент только после завершения загрузки -->
+        <Transition name="fade">
+            <div v-uf="isLoading=false" class="profile-backround">
+                <div class="profile-block">
+                    <img class="profile-img" src="public/user.svg">
+                    <p class="profile-name">{{ userName }}</p>
+                    <p class="profile-email">{{ userEmail }}</p>
+                    <div class="support">
+                        <a href="/">
+                            <div style="display: flex;">
+                                <img style="float: left;" src="public/telegram.svg">
+                                <p style="float: left;" class="support-txt">Support</p>
+                                <img style="float: left;" src="public/arrow.svg"> 
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>  
-            <NuxtLink to="/main">
-                <p class="auth-txt">Back home page</p>
-            </NuxtLink>
-        </div>
+                    <p class="promote-txt">Referral promotion</p>
+                    <div class="promote-block">
+                        <div style="height: 20px;display: flex;width: 120px;align-items: center; margin: 0px 0px 0px 43px;">
+                            <div style="float: left;">
+                                <img src="public/path.svg">
+                            </div>
+                            <div style="float: left;">
+                                <p class="promote-name">Promotion</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="promote-comment">If you invite 5 friends who stake their assets, you will receive 150 TON</p>
+                        </div>
+                    </div>
+
+                    <div class="referral-block">
+                        <p class="referral-title">Invite friends</p>
+                        <p class="referral-count">Friends invited: {{ referralCount }}</p>
+                        <div class="referral-link-container">
+                            <input type="text" class="referral-link" :value="referralLink" readonly />
+                            <button @click="copyReferralLink" class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>  
+                <NuxtLink to="/main">
+                    <p class="auth-txt">Back home page</p>
+                </NuxtLink>
+            </div>
+        </Transition>
     </div>
 </template>
 
 <script>
+import {AtomSpinner} from 'epic-spinners'
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
@@ -56,6 +72,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default {
   data() {
     return {
+      isLoading: true,
       registrationForm: {
         name: '',
         email: '',
@@ -74,7 +91,7 @@ export default {
       referralCount: 0,
       referralCode: '',
       referralLink: '',
-      referrerCode: '' // Для хранения кода реферера при регистрации
+      referrerCode: ''
     };
   },
   name: 'register',
@@ -84,14 +101,28 @@ export default {
   },
   mounted() {
     this.checkSession();
-    // Получаем код реферера из URL, если он есть
     const urlParams = new URLSearchParams(window.location.search);
     this.referrerCode = urlParams.get('ref') || '';
   },
+  components: {
+    AtomSpinner
+  },
   methods: {
+    delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
     async checkSession() {
       try {
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        this.isLoading = true;
+        
+        const sessionPromise = supabase.auth.getSession();
+        const delayPromise = this.delay(2000);
+
+        const [{ data: { session }, error: sessionError }] = await Promise.all([
+          sessionPromise,
+          delayPromise
+        ]);
 
         if (sessionError) {
           console.error("Ошибка при получении сессии:", sessionError);
@@ -110,6 +141,8 @@ export default {
         }
       } catch (error) {
         console.error("Общая ошибка при проверке сессии:", error);
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -148,7 +181,6 @@ export default {
           this.referralCode = data.referral_code || '';
           this.referralCount = data.referral_count || 0;
           
-          // Создаем реферальную ссылку - ИЗМЕНЕНО с register на registration
           const baseUrl = window.location.origin;
           this.referralLink = `${baseUrl}/?ref=${this.referralCode}`;
         } else {
@@ -162,7 +194,6 @@ export default {
       }
     },
 
-    // Метод для копирования реферальной ссылки в буфер обмена
     async copyReferralLink() {
       try {
         await navigator.clipboard.writeText(this.referralLink);
@@ -173,17 +204,17 @@ export default {
       }
     },
 
-    // Генерация уникального реферального кода
     generateReferralCode() {
-      return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
+      return Math.random().toString(36).substring(2, 10);
     },
 
     async registerUser() {
+      this.isLoading = true;
       this.registrationError = null;
       this.registrationSuccess = false;
 
       try {
-        const { error, data } = await supabase.auth.signUp({
+        const registerPromise = supabase.auth.signUp({
           email: this.registrationForm.email,
           password: this.registrationForm.password,
           options: {
@@ -192,6 +223,12 @@ export default {
             }
           }
         });
+        const delayPromise = this.delay(2000);
+
+        const [{ error, data }] = await Promise.all([
+          registerPromise,
+          delayPromise
+        ]);
 
         if (error) {
           console.error('Ошибка регистрации:', error);
@@ -200,10 +237,8 @@ export default {
           console.log('Регистрация успешна:', data);
           this.registrationSuccess = true;
           
-          // Создаем профиль пользователя с реферальным кодом
           await this.createUserProfile(data.user.id, this.registrationForm.name);
           
-          // Обрабатываем реферальный код, если он был в URL
           if (this.referrerCode) {
             await this.incrementReferralCount(this.referrerCode);
           }
@@ -213,6 +248,8 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при регистрации:', error);
         this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -242,10 +279,8 @@ export default {
       }
     },
 
-    // Увеличиваем счетчик рефералов у пригласившего пользователя
     async incrementReferralCount(referralCode) {
       try {
-        // Находим пользователя по реферальному коду
         const { data: referrer, error: fetchError } = await supabase
           .from('user_profiles')
           .select('id, referral_count')
@@ -258,7 +293,6 @@ export default {
         }
 
         if (referrer) {
-          // Увеличиваем счетчик рефералов на 1
           const newCount = (referrer.referral_count || 0) + 1;
           
           const { error: updateError } = await supabase
@@ -278,12 +312,19 @@ export default {
     },
 
     async loginUser() {
+      this.isLoading = true;
       this.loginError = null;
       try {
-        const { error, data } = await supabase.auth.signInWithPassword({
+        const loginPromise = supabase.auth.signInWithPassword({
           email: this.loginForm.email,
           password: this.loginForm.password,
         });
+        const delayPromise = this.delay(2000);
+
+        const [{ error, data }] = await Promise.all([
+          loginPromise,
+          delayPromise
+        ]);
 
         if (error) {
           console.error('Ошибка авторизации:', error);
@@ -297,13 +338,23 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при авторизации:', error);
         this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
+      } finally {
+        this.isLoading = false;
       }
     },
 
     async logoutUser() {
+      this.isLoading = true;
       const router = useRouter()
       try {
-        const { error } = await supabase.auth.signOut();
+        const logoutPromise = supabase.auth.signOut();
+        const delayPromise = this.delay(2000);
+
+        const [{ error }] = await Promise.all([
+          logoutPromise,
+          delayPromise
+        ]);
+
         if (error) {
           console.error('Ошибка выхода из системы:', error);
         } else {
@@ -319,6 +370,7 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при выходе из системы:', error);
       } finally {
+        this.isLoading = false;
         await this.checkSession();
       }
     }
@@ -524,4 +576,46 @@ export default {
   cursor: pointer;
 }
 
+/* Добавляем стили для центрирования спиннера */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #17181C; /* или любой другой цвет фона */
+    z-index: 9999;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #17181C;
+    z-index: 9999;
+}
+
+/* Стили для анимации затухания */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
 </style>
