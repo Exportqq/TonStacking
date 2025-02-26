@@ -6,17 +6,17 @@
       <div class="backround">
         <div class="header-navigation">
           <div class="header-block">
-            <ul style="display: flex; align-items: center; margin-top: 15px;">
-              <li>
-                <img src="public/user.svg">
-              </li>
-              <li>
-                <p class="user-name">{{ userName }}</p>
-              </li>
-              <li>
-                <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg"></button>
-              </li>
-            </ul>
+            <div style="display: flex; align-items: center; margin-top: 15px;">
+              <NuxtLink to="/profile">
+                <div style="float: left;">
+                  <img src="public/user.svg">
+                </div>
+                <div style="float: left;">
+                  <p class="user-name">{{ userName }}</p>
+                </div>
+              </NuxtLink>            
+              <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg"></button>
+            </div>
           </div>
         </div>
 
@@ -474,6 +474,8 @@ button {
   width: 54px;
   height: 30px;
   margin: 0px 0px 0px 8px;
+  display: flex;
+  align-items: center;
 }
 
 .log-out-img {
@@ -544,6 +546,51 @@ button {
   margin: 29px 0px 0px 0px;
 }
 
+
+.referral-title {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.referral-count {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.referral-link-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.referral-link {
+  flex: 1;
+  background: rgb(23, 24, 28);
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.copy-btn {
+  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
 
 .staking-header {
   display: flex;

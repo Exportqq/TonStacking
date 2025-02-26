@@ -32,14 +32,16 @@
 
                 <div class="referral-block">
                     <p class="referral-title">Invite friends</p>
-                    <p class="referral-count">Your referrals: {{ referralCount }}</p>
+                    <p class="referral-count">Friends invited: {{ referralCount }}</p>
                     <div class="referral-link-container">
                         <input type="text" class="referral-link" :value="referralLink" readonly />
                         <button @click="copyReferralLink" class="copy-btn">Copy</button>
                     </div>
                 </div>
             </div>  
-            
+            <NuxtLink to="/main">
+                <p class="auth-txt">Back home page</p>
+            </NuxtLink>
         </div>
     </div>
 </template>
@@ -68,7 +70,6 @@ export default {
       loginError: null,
       user: null,
       userName: null,
-      userEmail: null,
       userBalance: 0,
       referralCount: 0,
       referralCode: '',
@@ -113,55 +114,52 @@ export default {
     },
 
     async fetchUser() {
-        try {
-            const { data: { user }, error: userError } = await supabase.auth.getUser();
+      try {
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-            if (userError) {
-            console.error("Ошибка при получении данных пользователя:", userError);
-            return;
-            }
-
-            if (user) {
-            this.user = user;
-            this.userName = user.user_metadata.full_name || '';
-            this.userEmail = user.email; // Сохраняем email из данных пользователя
-            await this.fetchUserProfile(user.id);
-            }
-        } catch (error) {
-            console.error("Общая ошибка при получении пользователя:", error);
+        if (userError) {
+          console.error("Ошибка при получении данных пользователя:", userError);
+          return;
         }
+
+        if (user) {
+          this.user = user;
+          this.userName = user.user_metadata.full_name || user.email;
+          await this.fetchUserProfile(user.id);
+        }
+      } catch (error) {
+        console.error("Общая ошибка при получении пользователя:", error);
+      }
     },
 
     async fetchUserProfile(userId) {
-        try {
-            const { data, error } = await supabase
-            .from('user_profiles')
-            .select('balance, referral_code, referral_count, full_name, email')  // добавил email в запрос
-            .eq('id', userId)
-            .single();
+      try {
+        const { data, error } = await supabase
+          .from('user_profiles')
+          .select('balance, referral_code, referral_count')
+          .eq('id', userId)
+          .single();
 
-            if (error) {
-            console.error("Ошибка при получении профиля пользователя:", error);
-            this.userBalance = 'Ошибка загрузки';
-            } else if (data) {
-            this.userBalance = data.balance || 0;
-            this.referralCode = data.referral_code || '';
-            this.referralCount = data.referral_count || 0;
-            this.userName = data.full_name || '';
-            this.userEmail = data.email || this.user.email; // Получаем email из профиля или из данных пользователя
-            
-            // Создаем реферальную ссылку
-            const baseUrl = window.location.origin;
-            this.referralLink = `${baseUrl}/?ref=${this.referralCode}`;
-            } else {
-            this.userBalance = 0;
-            this.referralCount = 0;
-            this.referralLink = '';
-            }
-        } catch (error) {
-            console.error("Общая ошибка при получении профиля пользователя:", error);
-            this.userBalance = 'Ошибка загрузки';
+        if (error) {
+          console.error("Ошибка при получении профиля пользователя:", error);
+          this.userBalance = 'Ошибка загрузки';
+        } else if (data) {
+          this.userBalance = data.balance || 0;
+          this.referralCode = data.referral_code || '';
+          this.referralCount = data.referral_count || 0;
+          
+          // Создаем реферальную ссылку - ИЗМЕНЕНО с register на registration
+          const baseUrl = window.location.origin;
+          this.referralLink = `${baseUrl}/?ref=${this.referralCode}`;
+        } else {
+          this.userBalance = 0;
+          this.referralCount = 0;
+          this.referralLink = '';
         }
+      } catch (error) {
+        console.error("Общая ошибка при получении профиля пользователя:", error);
+        this.userBalance = 'Ошибка загрузки';
+      }
     },
 
     // Метод для копирования реферальной ссылки в буфер обмена
@@ -335,6 +333,10 @@ export default {
     height: 1200px;
     display: flex;
     justify-content: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-block {
@@ -355,6 +357,19 @@ export default {
     margin: 0px 0px 0px 0px;
     position: absolute;
 }
+
+.auth-txt {
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0%;
+    text-align: center;
+    width: 295px;
+    height: 17px;
+    margin: 4px 0px 0px 0px;
+}
+
 
 .profile-name {
     color: rgb(255, 255, 255);
