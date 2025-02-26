@@ -35,16 +35,6 @@
           </div>
         </div>
 
-        <!-- Добавлен блок для реферальной системы -->
-        <div class="referral-block">
-          <p class="referral-title">Invite friends</p>
-          <p class="referral-count">Friends invited: {{ referralCount }}</p>
-          <div class="referral-link-container">
-            <input type="text" class="referral-link" :value="referralLink" readonly />
-            <button @click="copyReferralLink" class="copy-btn">Copy</button>
-          </div>
-        </div>
-
         <div class="staking-header">
           <div class="horizontal-line"></div>
           <p class="stake-txt">Staking</p>
@@ -554,59 +544,6 @@ button {
   margin: 29px 0px 0px 0px;
 }
 
-/* Стили для реферальной системы */
-.referral-block {
-  width: 339px;
-  background: rgb(32, 34, 43);
-  border-radius: 16px;
-  padding: 15px;
-  margin-top: 20px;
-}
-
-.referral-title {
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.referral-count {
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.referral-link-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.referral-link {
-  flex: 1;
-  background: rgb(23, 24, 28);
-  border: none;
-  border-radius: 4px;
-  padding: 8px;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  margin-right: 5px;
-}
-
-.copy-btn {
-  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  cursor: pointer;
-}
 
 .staking-header {
   display: flex;
