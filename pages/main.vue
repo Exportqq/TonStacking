@@ -266,7 +266,7 @@ export default {
           
           // Создаем реферальную ссылку - ИЗМЕНЕНО с register на registration
           const baseUrl = window.location.origin;
-          this.referralLink = `${baseUrl}/register?ref=${this.referralCode}`;
+          this.referralLink = `${baseUrl}/?ref=${this.referralCode}`;
         } else {
           this.userBalance = 0;
           this.referralCount = 0;
