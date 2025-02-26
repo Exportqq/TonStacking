@@ -1,6 +1,20 @@
 <template>
     <div>
-        <div class="backrounds">
+
+      <Transition name="fade">
+      <div v-if="isLoading" class="loading-container">
+        <div id="app">
+          <atom-spinner
+            :animation-duration="1200"
+            :size="60"
+            :color="'#25A3E2'"
+          />
+        </div>
+      </div>
+    </Transition>
+
+    <Transition name="fade-cont">
+      <div class="backrounds">
           <form class="form-settings" id="registration-form" @submit.prevent="loginUser">
             <div class="register-form">
               <p class="register-txt">Authorization</p>
@@ -35,10 +49,12 @@
             </NuxtLink>
           </form>
         </div>
+    </Transition>
     </div>
 </template>
 
 <script>
+import { AtomSpinner } from 'epic-spinners'
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
@@ -48,6 +64,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default {
   data() {
     return {
+      isLoading: true,
       registrationForm: {
         name: '',
         email: '',
@@ -88,6 +105,8 @@ export default {
         }
       } catch (error) {
         console.error("Общая ошибка при проверке сессии:", error);
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -154,6 +173,8 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при авторизации:', error);
         this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -171,8 +192,9 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при выходе из системы:', error);
       } finally {
+        this.isLoading = false;
         await this.checkSession();
-      }
+      } 
     }
   }
 };
@@ -304,4 +326,38 @@ input {
 .html {
   touch-action: manipulation; /* Отключает двойной тап и зум */
 } 
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
+
+/* Анимация для основного контента (fade-cont) */
+.fade-cont-enter-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-leave-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-enter-from,
+.fade-cont-leave-to {
+    opacity: 0;
+}
+
+.fade-cont-enter-to,
+.fade-cont-leave-from {
+    opacity: 1;
+}
 </style>

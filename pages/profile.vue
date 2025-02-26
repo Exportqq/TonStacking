@@ -13,29 +13,29 @@
             </div>
         </Transition>
 
-        <!-- Показываем основной контент только после завершения загрузки -->
-        <Transition name="fade">
-            <div v-uf="isLoading=false" class="profile-backround">
+        <!-- Показываем основной контент с анимацией fade-cont -->
+        <Transition name="fade-cont">
+            <div v-if="!isLoading" class="profile-backround">
                 <div class="profile-block">
-                    <img class="profile-img" src="public/user.svg">
+                    <img class="profile-img" src="public/user.svg" alt="User">
                     <p class="profile-name">{{ userName }}</p>
                     <p class="profile-email">{{ userEmail }}</p>
                     <div class="support">
                         <a href="/">
-                            <div style="display: flex;">
-                                <img style="float: left;" src="public/telegram.svg">
-                                <p style="float: left;" class="support-txt">Support</p>
-                                <img style="float: left;" src="public/arrow.svg"> 
+                            <div style="display: flex; align-items: center;">
+                                <img style="margin-right: 8px;" src="public/telegram.svg" alt="Telegram">
+                                <p class="support-txt">Support</p>
+                                <img style="margin-left: 8px;" src="public/arrow.svg" alt="Arrow">
                             </div>
                         </a>
                     </div>
                     <p class="promote-txt">Referral promotion</p>
                     <div class="promote-block">
-                        <div style="height: 20px;display: flex;width: 120px;align-items: center; margin: 0px 0px 0px 43px;">
-                            <div style="float: left;">
-                                <img src="public/path.svg">
+                        <div style="height: 20px; display: flex; width: 120px; align-items: center; margin: 0 0 0 43px;">
+                            <div style="margin-right: 8px;">
+                                <img src="public/path.svg" alt="Path">
                             </div>
-                            <div style="float: left;">
+                            <div>
                                 <p class="promote-name">Promotion</p>
                             </div>
                         </div>
@@ -618,4 +618,24 @@ export default {
 .fade-leave-from {
     opacity: 1;
 }
+
+/* Анимация для основного контента (fade-cont) */
+.fade-cont-enter-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-leave-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-enter-from,
+.fade-cont-leave-to {
+    opacity: 0;
+}
+
+.fade-cont-enter-to,
+.fade-cont-leave-from {
+    opacity: 1;
+}
+
 </style>

@@ -2,165 +2,185 @@
   <Head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   </Head>
-    <div>
-      <div class="backround">
-        <div class="header-navigation">
-          <div class="header-block">
-            <div style="display: flex; align-items: center; margin-top: 15px;">
-              <NuxtLink to="/profile">
-                <div style="float: left;">
-                  <img src="public/user.svg">
-                </div>
-                <div style="float: left;">
-                  <p class="user-name">{{ userName }}</p>
-                </div>
-              </NuxtLink>            
-              <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg"></button>
-            </div>
-          </div>
-        </div>
 
-        <div>
-          <p class="balance">{{ userBalance }} TON</p>
-          <div class="transaction-navigation">
-            <NuxtLink to="/lowTON">
-              <button class="transaction-btn">
-                <img src="public/send.svg">
-                <p class="transaction-txt">Send</p>
-              </button>
-            </NuxtLink>
-            <div class="vertical-line"></div>
-            <NuxtLink to="/recieveTON">
-              <button class="transaction-btn">
-                <img src="public/wallet.svg">
-                <p class="transaction-txt">Receive</p>
-              </button>
-            </NuxtLink>
-          </div>
+  <div>
+    <!-- Показываем спиннер загрузки с анимацией fade -->
+    <Transition name="fade">
+      <div v-if="isLoading" class="loading-container">
+        <div id="app">
+          <atom-spinner
+            :animation-duration="1200"
+            :size="60"
+            :color="'#25A3E2'"
+          />
         </div>
+      </div>
+    </Transition>
 
-        <div class="staking-header">
-          <div class="horizontal-line"></div>
-          <p class="stake-txt">Staking</p>
-          <div class="horizontal-line-two"></div>
-        </div>
-        <div style="display: flex;flex-direction: column;align-items: center; overflow: scroll;">
-          <div class="stake-block">
-            <div style="float: left;">
-              <p class="stake-block-txt">Staking for 21 days</p>
-              <NuxtLink to="lowTON">
-                <button class="stake-block-btn">Stake</button>
-              </NuxtLink>
-            </div>
-            <div style="float: left;">
-              <div style="display: flex;flex-direction: column;align-items: center;">
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">180</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
-                <ul style="margin: 3px 24px 0px 0px;">
-                  <li>
-                    <p class="ton-procent">36%</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
-                  </li>
-                </ul>
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">245</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
+    <!-- Показываем основной контент с анимацией fade-cont -->
+    <Transition name="fade-cont">
+      <div v-if="!isLoading">
+        <div class="backround">
+          <div class="header-navigation">
+            <div class="header-block">
+              <div style="display: flex; align-items: center; margin-top: 15px;">
+                <NuxtLink to="/profile">
+                  <div style="float: left;">
+                    <img src="public/user.svg" alt="User">
+                  </div>
+                  <div style="float: left;">
+                    <p class="user-name">{{ userName }}</p>
+                  </div>
+                </NuxtLink>            
+                <button @click="logoutUser"><img class="log-out-img" src="public/logout.svg" alt="Logout"></button>
               </div>
             </div>
           </div>
 
-          <div class="stake-block">
-            <div style="float: left;">
-              <p class="stake-block-txt">Staking for 21 days</p>
-              <NuxtLink to="middleTON">
-                <button class="stake-block-btn">Stake</button>
+          <div>
+            <p class="balance">{{ userBalance }} TON</p>
+            <div class="transaction-navigation">
+              <NuxtLink to="/lowTON">
+                <button class="transaction-btn">
+                  <img src="public/send.svg" alt="Send">
+                  <p class="transaction-txt">Send</p>
+                </button>
               </NuxtLink>
-            </div>
-            <div style="float: left;">
-              <div style="display: flex;flex-direction: column;align-items: center;">
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">250</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
-                <ul style="margin: 3px 24px 0px 0px;">
-                  <li>
-                    <p class="ton-procent">44%</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
-                  </li>
-                </ul>
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">360</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
-              </div>
+              <div class="vertical-line"></div>
+              <NuxtLink to="/recieveTON">
+                <button class="transaction-btn">
+                  <img src="public/wallet.svg" alt="Receive">
+                  <p class="transaction-txt">Receive</p>
+                </button>
+              </NuxtLink>
             </div>
           </div>
 
-          <div class="stake-block">
-            <div style="float: left;">
-              <p class="stake-block-txt">Staking for 14 days</p>
-              <NuxtLink to="highTON">
-                <button class="stake-block-btn">Stake</button>
-              </NuxtLink>
+          <div class="staking-header">
+            <div class="horizontal-line"></div>
+            <p class="stake-txt">Staking</p>
+            <div class="horizontal-line-two"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; overflow: scroll;">
+            <div class="stake-block">
+              <div style="float: left;">
+                <p class="stake-block-txt">Staking for 21 days</p>
+                <NuxtLink to="/lowTON">
+                  <button class="stake-block-btn">Stake</button>
+                </NuxtLink>
+              </div>
+              <div style="float: left;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">180</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                  <ul style="margin: 3px 24px 0px 0px;">
+                    <li>
+                      <p class="ton-procent">36%</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg" alt="Swap">
+                    </li>
+                  </ul>
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">245</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div style="float: left;">
-              <div style="display: flex;flex-direction: column;align-items: center;">
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">390</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
-                <ul style="margin: 3px 24px 0px 0px;">
-                  <li>
-                    <p class="ton-procent">51%</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg">
-                  </li>
-                </ul>
-                <ul class="ton-list">
-                  <li>
-                    <p class="ton-price">590</p>
-                  </li>
-                  <li>
-                    <img style="margin: 0px 0px 0px 4px;" src="public/path.svg">
-                  </li>
-                </ul>
+
+            <div class="stake-block">
+              <div style="float: left;">
+                <p class="stake-block-txt">Staking for 21 days</p>
+                <NuxtLink to="/middleTON">
+                  <button class="stake-block-btn">Stake</button>
+                </NuxtLink>
+              </div>
+              <div style="float: left;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">250</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                  <ul style="margin: 3px 24px 0px 0px;">
+                    <li>
+                      <p class="ton-procent">44%</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg" alt="Swap">
+                    </li>
+                  </ul>
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">360</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="stake-block">
+              <div style="float: left;">
+                <p class="stake-block-txt">Staking for 14 days</p>
+                <NuxtLink to="/highTON">
+                  <button class="stake-block-btn">Stake</button>
+                </NuxtLink>
+              </div>
+              <div style="float: left;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">390</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                  <ul style="margin: 3px 24px 0px 0px;">
+                    <li>
+                      <p class="ton-procent">51%</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg" alt="Swap">
+                    </li>
+                  </ul>
+                  <ul class="ton-list">
+                    <li>
+                      <p class="ton-price">590</p>
+                    </li>
+                    <li>
+                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Transition>
+  </div>
 </template>
 
 <script>
+import { AtomSpinner } from 'epic-spinners'
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
@@ -170,6 +190,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default {
   data() {
     return {
+      isLoading: true, // Добавляем переменную для состояния загрузки
       registrationForm: {
         name: '',
         email: '',
@@ -188,7 +209,7 @@ export default {
       referralCount: 0,
       referralCode: '',
       referralLink: '',
-      referrerCode: '' // Для хранения кода реферера при регистрации
+      referrerCode: ''
     };
   },
   name: 'register',
@@ -198,14 +219,29 @@ export default {
   },
   mounted() {
     this.checkSession();
-    // Получаем код реферера из URL, если он есть
     const urlParams = new URLSearchParams(window.location.search);
     this.referrerCode = urlParams.get('ref') || '';
   },
+  components: {
+    AtomSpinner
+  },
   methods: {
+    // Вспомогательная функция для минимальной задержки
+    delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    },
+
     async checkSession() {
       try {
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        this.isLoading = true;
+        
+        const sessionPromise = supabase.auth.getSession();
+        const delayPromise = this.delay(2000);
+
+        const [{ data: { session }, error: sessionError }] = await Promise.all([
+          sessionPromise,
+          delayPromise
+        ]);
 
         if (sessionError) {
           console.error("Ошибка при получении сессии:", sessionError);
@@ -224,6 +260,8 @@ export default {
         }
       } catch (error) {
         console.error("Общая ошибка при проверке сессии:", error);
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -262,7 +300,6 @@ export default {
           this.referralCode = data.referral_code || '';
           this.referralCount = data.referral_count || 0;
           
-          // Создаем реферальную ссылку - ИЗМЕНЕНО с register на registration
           const baseUrl = window.location.origin;
           this.referralLink = `${baseUrl}/?ref=${this.referralCode}`;
         } else {
@@ -276,7 +313,6 @@ export default {
       }
     },
 
-    // Метод для копирования реферальной ссылки в буфер обмена
     async copyReferralLink() {
       try {
         await navigator.clipboard.writeText(this.referralLink);
@@ -287,17 +323,17 @@ export default {
       }
     },
 
-    // Генерация уникального реферального кода
     generateReferralCode() {
-      return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
+      return Math.random().toString(36).substring(2, 10);
     },
 
     async registerUser() {
+      this.isLoading = true;
       this.registrationError = null;
       this.registrationSuccess = false;
 
       try {
-        const { error, data } = await supabase.auth.signUp({
+        const registerPromise = supabase.auth.signUp({
           email: this.registrationForm.email,
           password: this.registrationForm.password,
           options: {
@@ -306,6 +342,12 @@ export default {
             }
           }
         });
+        const delayPromise = this.delay(2000);
+
+        const [{ error, data }] = await Promise.all([
+          registerPromise,
+          delayPromise
+        ]);
 
         if (error) {
           console.error('Ошибка регистрации:', error);
@@ -314,10 +356,8 @@ export default {
           console.log('Регистрация успешна:', data);
           this.registrationSuccess = true;
           
-          // Создаем профиль пользователя с реферальным кодом
           await this.createUserProfile(data.user.id, this.registrationForm.name);
           
-          // Обрабатываем реферальный код, если он был в URL
           if (this.referrerCode) {
             await this.incrementReferralCount(this.referrerCode);
           }
@@ -327,6 +367,8 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при регистрации:', error);
         this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+      } finally {
+        this.isLoading = false;
       }
     },
 
@@ -356,10 +398,8 @@ export default {
       }
     },
 
-    // Увеличиваем счетчик рефералов у пригласившего пользователя
     async incrementReferralCount(referralCode) {
       try {
-        // Находим пользователя по реферальному коду
         const { data: referrer, error: fetchError } = await supabase
           .from('user_profiles')
           .select('id, referral_count')
@@ -372,7 +412,6 @@ export default {
         }
 
         if (referrer) {
-          // Увеличиваем счетчик рефералов на 1
           const newCount = (referrer.referral_count || 0) + 1;
           
           const { error: updateError } = await supabase
@@ -392,12 +431,19 @@ export default {
     },
 
     async loginUser() {
+      this.isLoading = true;
       this.loginError = null;
       try {
-        const { error, data } = await supabase.auth.signInWithPassword({
+        const loginPromise = supabase.auth.signInWithPassword({
           email: this.loginForm.email,
           password: this.loginForm.password,
         });
+        const delayPromise = this.delay(2000);
+
+        const [{ error, data }] = await Promise.all([
+          loginPromise,
+          delayPromise
+        ]);
 
         if (error) {
           console.error('Ошибка авторизации:', error);
@@ -411,13 +457,23 @@ export default {
       } catch (error) {
         console.error('Общая ошибка при авторизации:', error);
         this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
+      } finally {
+        this.isLoading = false;
       }
     },
 
     async logoutUser() {
-      const router = useRouter()
+      this.isLoading = true;
+      const router = useRouter();
       try {
-        const { error } = await supabase.auth.signOut();
+        const logoutPromise = supabase.auth.signOut();
+        const delayPromise = this.delay(2000);
+
+        const [{ error }] = await Promise.all([
+          logoutPromise,
+          delayPromise
+        ]);
+
         if (error) {
           console.error('Ошибка выхода из системы:', error);
         } else {
@@ -428,11 +484,12 @@ export default {
           this.referralCount = 0;
           this.referralCode = '';
           this.referralLink = '';
-          router.push({ path: "/login" })
+          router.push({ path: "/login" });
         }
       } catch (error) {
         console.error('Общая ошибка при выходе из системы:', error);
       } finally {
+        this.isLoading = false;
         await this.checkSession();
       }
     }
@@ -714,5 +771,39 @@ button {
   height: 24px;
   display: flex;
   align-items: center;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
+
+/* Анимация для основного контента (fade-cont) */
+.fade-cont-enter-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-leave-active {
+    transition: opacity 0s ease;
+}
+
+.fade-cont-enter-from,
+.fade-cont-leave-to {
+    opacity: 0;
+}
+
+.fade-cont-enter-to,
+.fade-cont-leave-from {
+    opacity: 1;
 }
 </style>
