@@ -23,15 +23,19 @@
         <div>
           <p class="balance">{{ userBalance }} TON</p>
           <div class="transaction-navigation">
-            <button class="transaction-btn">
-              <img src="public/send.svg">
-              <p class="transaction-txt">Send</p>
-            </button>
+            <NuxtLink to="/lowTON">
+              <button class="transaction-btn">
+                <img src="public/send.svg">
+                <p class="transaction-txt">Send</p>
+              </button>
+            </NuxtLink>
             <div class="vertical-line"></div>
-            <button class="transaction-btn">
-              <img src="public/wallet.svg">
-              <p class="transaction-txt">Receive</p>
-            </button>
+            <NuxtLink to="/recieveTON">
+              <button class="transaction-btn">
+                <img src="public/wallet.svg">
+                <p class="transaction-txt">Receive</p>
+              </button>
+            </NuxtLink>
           </div>
         </div>
 
@@ -81,7 +85,9 @@
           <div class="stake-block">
             <div style="float: left;">
               <p class="stake-block-txt">Staking for 21 days</p>
-              <button class="stake-block-btn">Stake</button>
+              <NuxtLink to="middleTON">
+                <button class="stake-block-btn">Stake</button>
+              </NuxtLink>
             </div>
             <div style="float: left;">
               <div style="display: flex;flex-direction: column;align-items: center;">
@@ -116,7 +122,9 @@
           <div class="stake-block">
             <div style="float: left;">
               <p class="stake-block-txt">Staking for 14 days</p>
-              <button class="stake-block-btn">Stake</button>
+              <NuxtLink to="highTON">
+                <button class="stake-block-btn">Stake</button>
+              </NuxtLink>
             </div>
             <div style="float: left;">
               <div style="display: flex;flex-direction: column;align-items: center;">

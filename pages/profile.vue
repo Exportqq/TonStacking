@@ -327,6 +327,11 @@ export default {
 </script>
 
 <style>
+* {
+    margin: 0px;
+    margin: 0px;
+}
+
 .profile-backround {
     background: rgb(12, 13, 14);
     width: 100%;
@@ -443,7 +448,7 @@ export default {
 }
 
 .promote-block {
-    background-image: url(promote.jpeg);
+    background-image: url(tons.png);
     width: 295px;
     height: 114px;
     display: flex;
