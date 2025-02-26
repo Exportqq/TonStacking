@@ -259,7 +259,7 @@ export default {
           this.referralCode = data.referral_code || '';
           this.referralCount = data.referral_count || 0;
           
-          // Создаем реферальную ссылку
+          // Создаем реферальную ссылку - ИЗМЕНЕНО с register на registration
           const baseUrl = window.location.origin;
           this.referralLink = `${baseUrl}/register?ref=${this.referralCode}`;
         } else {
