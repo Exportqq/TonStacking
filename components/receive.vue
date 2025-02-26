@@ -3,7 +3,7 @@
       <div class="backround-recive">
         <form class="form-settings" id="registration-form" @submit.prevent="sendReceiveData">
           <div class="register-form">
-            <p class="register-txt">Receive</p>
+            <p class="register-txt">Send TON</p>
   
             <p class="form-placholder">Email</p>
             <input 

@@ -35,6 +35,8 @@
               class="form-block"
             />
 
+            <p class="errors-txt" v-if="showError">{{ catchError }}</p>
+
             <!-- Показываем информацию о реферале, если он есть -->
             <p v-if="referrerCode" class="referral-info">
               Приглашены пользователем с кодом: {{ referrerCode }}
@@ -62,6 +64,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default {
   data() {
     return {
+      catchError: '',
+      showError: false,
       registrationForm: {
         name: '',
         email: '',
@@ -80,6 +84,7 @@ export default {
       referrerCode: '' // Поле для реферального кода
     };
   },
+
   mounted() {
     this.checkSession();
 
@@ -88,6 +93,12 @@ export default {
     this.referrerCode = urlParams.get('ref') || '';
   },
   methods: {
+    triggerError() {
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 2000);
+    },
     async checkSession() {
       try {
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
@@ -176,9 +187,10 @@ export default {
         });
 
         if (error) {
+          this.catchError = 'Password is not less than 6 characters or this email is busy'
+          this.triggerError();
           console.error('Ошибка регистрации:', error);
           this.registrationError = error.message;
-          router.push({ path: "/login" })
         } else {
           console.log('Регистрация успешна:', data);
           this.registrationSuccess = true;
@@ -403,5 +415,18 @@ font-size: 12px;
 font-weight: 500;
 margin-top: 15px;
 text-align: center;
+}
+
+.errors-txt {
+  color: rgb(244, 82, 82);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0%;
+  text-align: center;
+  height: 14px;
+  margin: 10px 0px 0px 0px ;
+  width: 240px;
 }
 </style>

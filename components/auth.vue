@@ -39,6 +39,9 @@
                 required
                 class="form-block"
               />
+              <p class="errors-txt" v-if="showError">{{ catchError }}</p>
+
+
             </div>
 
             <button class="register-btn" type="submit">Done</button>
@@ -64,6 +67,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export default {
   data() {
     return {
+      showError: false,
+      catchError: '',
       isLoading: true,
       registrationForm: {
         name: '',
@@ -161,6 +166,8 @@ export default {
         });
 
         if (error) {
+          this.catchError = 'Incorrect password or email'
+          this.triggerError();
           console.error('Ошибка авторизации:', error);
           this.loginError = error.message;
         } else {
@@ -176,6 +183,13 @@ export default {
       } finally {
         this.isLoading = false;
       }
+    },
+
+    triggerError() {
+      this.showError = true;
+      setTimeout(() => {
+        this.showError = false;
+      }, 2000);
     },
 
     async logoutUser() {
@@ -359,5 +373,17 @@ input {
 .fade-cont-enter-to,
 .fade-cont-leave-from {
     opacity: 1;
+}
+
+.errors-txt {
+  color: rgb(244, 82, 82);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0%;
+  text-align: center;
+  height: 14px;
+  margin: 10px 0px 0px 0px ;
 }
 </style>

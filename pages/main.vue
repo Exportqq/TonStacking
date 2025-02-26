@@ -40,14 +40,14 @@
           <div>
             <p class="balance">{{ userBalance }} TON</p>
             <div class="transaction-navigation">
-              <NuxtLink to="/lowTON">
+              <NuxtLink to="/recieveTON">
                 <button class="transaction-btn">
                   <img src="public/send.svg" alt="Send">
                   <p class="transaction-txt">Send</p>
                 </button>
               </NuxtLink>
               <div class="vertical-line"></div>
-              <NuxtLink to="/recieveTON">
+              <NuxtLink to="/lowTON">
                 <button class="transaction-btn">
                   <img src="public/wallet.svg" alt="Receive">
                   <p class="transaction-txt">Receive</p>
