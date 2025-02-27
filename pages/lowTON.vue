@@ -1,132 +1,143 @@
 <template>
-<div>
-    <div class="backround-lowton">
-      <div class="navigation">
-        <div style="width: 327px; margin: 60px 0px 0px 0px;">
-            <img src="public/logo.svg" alt="Logo">
+  <div>
+      <div class="backround-lowton">
+        <div class="navigation">
+          <div style="width: 327px; margin: 60px 0px 0px 0px;">
+              <img src="public/logo.svg" alt="Logo">
+          </div>
+          <div class="signup-navigation" style="margin: 38px 0px 31px 0px;">
+              <p class="sign-up-txt">100 TON STAKE</p>
+              <p class="sign-up-comment">The maximum application review period is 24 hours, TonStaking is not for everyone fren</p>
+          </div>
         </div>
-        <div class="signup-navigation" style="margin: 38px 0px 31px 0px;">
-            <p class="sign-up-txt">150 TON STAKE</p>
-            <p class="sign-up-comment">The maximum application review period is 24 hours, TonStaking is not for everyone fren</p>
+        <div>
+          <form class="form-settings" id="registration-form" @submit.prevent="submitRequest">
+              <div class="lowton-form">
+                  <p class="lowton-txt">Transaction</p>
+  
+                  <p class="form-lowton">Transfer address</p>
+                  <div class="form-block-lowton">
+                      <span class="shortened-address-lowton">{{ shortenedAddress }}</span>
+                      <p class="copy-text" @click="copyAddress">Скопировать адрес</p>
+                      <span ref="fullAddress" style="display: none;">UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S</span>
+                  </div>
+  
+                  <p class="form-lowton-two">Sender's address</p>
+                  <input 
+                      type="text" 
+                      id="productName" 
+                      name="login-password" 
+                      v-model="requestForm.productName" 
+                      required
+                      class="form-block-lowton"
+                  />
+  
+  
+                  <div>
+                      <p class="count-txt">Quantity:</p>
+                      <p class="txt-variable-lowton">{{ amount }}<img style="margin-left: 4px;" src="public/path.svg"><span class="sign-up-txt-xs">/31day</span></p>
+                  </div>
+  
+                  <button class="lowton-btn" type="submit">Done</button>
+                  <NuxtLink to="/main">
+                      <p class="lowton-back-txt">Back home page</p>
+                  </NuxtLink>
+              </div>
+  
+          </form>
         </div>
-      </div>
-      <div>
-        <form class="form-settings" id="registration-form" @submit.prevent="submitRequest">
-            <div class="lowton-form">
-                <p class="lowton-txt">Transaction</p>
-
-                <p class="form-lowton">Transfer address</p>
-                <div class="form-block-lowton">
-                    <span class="shortened-address-lowton">{{ shortenedAddress }}</span>
-                    <p class="copy-text" @click="copyAddress">Скопировать адрес</p>
-                    <span ref="fullAddress" style="display: none;">UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S</span>
-                </div>
-
-                <p class="form-lowton-two">Sender's address</p>
-                <input 
-                    type="text" 
-                    id="productName" 
-                    name="login-password" 
-                    v-model="requestForm.productName" 
-                    required
-                    class="form-block-lowton"
-                />
-
-
-                <div>
-                    <p class="count-txt">Quantity:</p>
-                    <p class="txt-variable-lowton">{{ amount }}<img style="margin-left: 4px;" src="public/path.svg"><span class="sign-up-txt-xs">/21day</span></p>
-                </div>
-
-                <button class="lowton-btn" type="submit">Done</button>
-                <NuxtLink to="/main">
-                    <p class="lowton-back-txt">Back home page</p>
-                </NuxtLink>
+        <div v-if="requestSuccess" class="modal">
+          <div class="modal-content">
+            <div>
+              <img class="approve-gif" src="public/approve.gif">
             </div>
-
-        </form>
+            <p class="approve-txt">Request accepted</p>
+          </div>
+        </div>
       </div>
-    </div>
-</div>
-</template>
-
-<script>
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2ZHBlemN3a2tsaGx4YWZweWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNjE0MDcsImV4cCI6MjA1NTczNzQwN30.lhw8XGLjw2GBhSLwuUaMGlz67vt9k1MztLUnRE7qBGM";
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-export default {
-  data() {
-    return {
-      fullAddressText: 'UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S',
-      shortenedAddress: '',
-      amount: 180,
-      requestForm: {
-        productName: ''
+  </div>
+  </template>
+  
+  <script>
+  import { createClient } from '@supabase/supabase-js';
+  
+  const supabaseUrl = "https://dvdpezcwkklhlxafpyfl.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR2ZHBlemN3a2tsaGx4YWZweWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNjE0MDcsImV4cCI6MjA1NTczNzQwN30.lhw8XGLjw2GBhSLwuUaMGlz67vt9k1MztLUnRE7qBGM";
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  export default {
+    data() {
+      return {
+        fullAddressText: 'UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S',
+        shortenedAddress: '',
+        amount: 100,
+        requestForm: {
+          productName: ''
+        },
+        requestSuccess: false,
+        requestError: null
+      };
+    },
+    mounted() {
+      this.shortenedAddress = this.shortenAddress(this.fullAddressText);
+    },
+    methods: {
+      shortenAddress(address) {
+        if (address.length <= 10) {
+          return address;
+        }
+        const firstPart = address.substring(0, 6);
+        const lastPart = address.substring(address.length - 4);
+        return `${firstPart}...${lastPart}`;
       },
-      requestSuccess: false,
-      requestError: null
-    };
-  },
-  mounted() {
-    this.shortenedAddress = this.shortenAddress(this.fullAddressText);
-  },
-  methods: {
-    shortenAddress(address) {
-      if (address.length <= 10) {
-        return address;
-      }
-      const firstPart = address.substring(0, 6);
-      const lastPart = address.substring(address.length - 4);
-      return `${firstPart}...${lastPart}`;
-    },
-    copyAddress() {
-      navigator.clipboard.writeText(this.fullAddressText)
-        .then(() => {
-          alert('Адрес скопирован!'); // Можно заменить на более красивое уведомление
-        })
-        .catch(err => {
-          console.error('Не удалось скопировать адрес:', err);
-        });
-    },
-    async submitRequest() {
-      this.requestError = null;
-      this.requestSuccess = false;
-
-      try {
-        const user = await supabase.auth.getUser();
-        if (!user.data.user) {
-          throw new Error("Пользователь не авторизован");
+      copyAddress() {
+        navigator.clipboard.writeText(this.fullAddressText)
+          .then(() => {
+            alert('Адрес скопирован!'); 
+          })
+          .catch(err => {
+            console.error('Не удалось скопировать адрес:', err);
+          });
+      },
+      async submitRequest() {
+        this.requestError = null;
+        this.requestSuccess = false;
+  
+        try {
+          const user = await supabase.auth.getUser();
+          if (!user.data.user) {
+            throw new Error("Пользователь не авторизован");
+          }
+  
+          const { error } = await supabase
+            .from('user_requests')
+            .insert([
+              {
+                user_email: user.data.user.email,
+                product_name: this.requestForm.productName,
+                amount: this.amount 
+              }
+            ]);
+  
+          if (error) {
+            console.error('Ошибка при отправке запроса:', error);
+            this.requestError = error.message;
+          } else {
+            console.log('Запрос успешно отправлен');
+            this.requestSuccess = true;
+            this.requestForm.productName = ''; 
+            setTimeout(() => {
+              this.requestSuccess = false;
+            }, 5000);
+          }
+        } catch (error) {
+          console.error('Общая ошибка при отправке запроса:', error);
+          this.requestError = 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже.';
         }
-
-        const { error } = await supabase
-          .from('user_requests')
-          .insert([
-            {
-              user_email: user.data.user.email,
-              product_name: this.requestForm.productName,
-              amount: this.amount // Используем фиксированное значение amount
-            }
-          ]);
-
-        if (error) {
-          console.error('Ошибка при отправке запроса:', error);
-          this.requestError = error.message;
-        } else {
-          console.log('Запрос успешно отправлен');
-          this.requestSuccess = true;
-          this.requestForm.productName = ''; // Очищаем поле формы
-        }
-      } catch (error) {
-        console.error('Общая ошибка при отправке запроса:', error);
-        this.requestError = 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже.';
       }
     }
-  }
-};
-</script>
+  };
+  </script>
 
 <style>
 * {
@@ -322,6 +333,7 @@ input {
   color: #007bff;
   cursor: pointer;
   text-decoration: underline;
+  font-family: 'Inter', sans-serif;
 }
 
 .copy-text:hover {
@@ -399,5 +411,96 @@ input {
   line-height: 130%;
   letter-spacing: -2%;
   text-align: left;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: zoomIn 0.5s;
+}
+
+.checkmark {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: inline-block;
+  margin-bottom: 10px;
+  animation: pulse 1s infinite;
+}
+
+.checkmark svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.approve-txt {
+  background: linear-gradient(153.43deg, rgb(29, 97, 231),rgb(61, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.approve-gif {
+   height: 188px;
+   width: 188px;
 }
 </style>

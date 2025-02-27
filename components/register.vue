@@ -192,7 +192,7 @@ export default {
           this.registrationForm = { name: '', email: '', password: '' };
 
           // Перенаправляем на страницу входа
-          router.push({ path: "/login" })
+          window.location.reload();
         }
       } catch (error) {
         console.error('Общая ошибка при регистрации:', error);

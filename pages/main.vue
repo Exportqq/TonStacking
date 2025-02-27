@@ -66,7 +66,7 @@
           <div style="display: flex; flex-direction: column; align-items: center; overflow: scroll;">
             <div class="stake-block">
               <div style="float: left;">
-                <p class="stake-block-txt">Staking for 21 days</p>
+                <p class="stake-block-txt">Staking for 31 days</p>
                 <NuxtLink to="/lowTON">
                   <button class="stake-block-btn">Stake</button>
                 </NuxtLink>
@@ -75,7 +75,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center;">
                   <ul class="ton-list">
                     <li>
-                      <p class="ton-price">180</p>
+                      <p class="ton-price">100</p>
                     </li>
                     <li>
                       <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
@@ -91,7 +91,7 @@
                   </ul>
                   <ul class="ton-list">
                     <li>
-                      <p class="ton-price">245</p>
+                      <p class="ton-price">136</p>
                     </li>
                     <li>
                       <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
@@ -149,7 +149,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center;">
                   <ul class="ton-list">
                     <li>
-                      <p class="ton-price">390</p>
+                      <p class="ton-price">320</p>
                     </li>
                     <li>
                       <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
@@ -165,7 +165,7 @@
                   </ul>
                   <ul class="ton-list">
                     <li>
-                      <p class="ton-price">590</p>
+                      <p class="ton-price">485</p>
                     </li>
                     <li>
                       <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">

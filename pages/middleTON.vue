@@ -6,7 +6,7 @@
             <img src="public/logo.svg" alt="Logo">
         </div>
         <div class="signup-navigation" style="margin: 38px 0px 31px 0px;">
-            <p class="sign-up-txt">220 TON STAKE</p>
+            <p class="sign-up-txt">250 TON STAKE</p>
             <p class="sign-up-comment">The maximum application review period is 24 hours, TonStaking is not for everyone fren</p>
         </div>
       </div>
@@ -46,7 +46,15 @@
 
         </form>
       </div>
-    </div>
+      <div v-if="requestSuccess" class="modal">
+        <div class="modal-content">
+          <div>
+            <img class="approve-gif" src="public/approve.gif">
+          </div>
+          <p class="approve-txt">Request accepted</p>
+        </div>
+      </div>
+  </div>
 </div>
 </template>
 
@@ -62,7 +70,7 @@ export default {
     return {
       fullAddressText: 'UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S',
       shortenedAddress: '',
-      amount: 220,
+      amount: 250,
       requestForm: {
         productName: ''
       },
@@ -118,6 +126,9 @@ export default {
           console.log('Запрос успешно отправлен');
           this.requestSuccess = true;
           this.requestForm.productName = ''; // Очищаем поле формы
+          setTimeout(() => {
+            this.requestSuccess = false;
+          }, 5000);
         }
       } catch (error) {
         console.error('Общая ошибка при отправке запроса:', error);
@@ -322,6 +333,7 @@ input {
   color: #007bff;
   cursor: pointer;
   text-decoration: underline;
+  font-family: 'Inter', sans-serif;
 }
 
 .copy-text:hover {
@@ -401,5 +413,94 @@ input {
   text-align: left;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
+}
 
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: zoomIn 0.5s;
+}
+
+.checkmark {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: inline-block;
+  margin-bottom: 10px;
+  animation: pulse 1s infinite;
+}
+
+.checkmark svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.approve-txt {
+  background: linear-gradient(153.43deg, rgb(29, 97, 231),rgb(61, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.approve-gif {
+   height: 188px;
+   width: 188px;
+}
 </style>
