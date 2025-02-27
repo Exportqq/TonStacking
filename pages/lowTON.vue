@@ -241,15 +241,9 @@ input {
   text;
   text-fill-color:
   transparent;
-  font-family: Montserrat;
+  font-family: 'Inter', sans-serif;
   font-size: 36px;
-  font-weight: 400;
-  line-height: 32px;
-  letter-spacing: 0%;
-  text-align: center;
-  font-family: 'Offside', sans-serif;
-  font-size: 36px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 32px;
   letter-spacing: 0%;
   text-align: center;

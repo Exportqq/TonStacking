@@ -545,7 +545,7 @@ export default {
   color: #17181C;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
   text-align: center;
 }

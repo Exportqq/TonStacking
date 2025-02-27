@@ -1,11 +1,11 @@
 <template>
     <div>
-        <receive/>
+        <send/>
     </div>
 </template>
 
 <script>
-import receive from '~/components/receive.vue';
+import send from '~/components/send.vue';
 
     export default {
         

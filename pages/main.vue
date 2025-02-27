@@ -47,7 +47,7 @@
 
         <div class="backroud-all-block">
           <div class="transaction-navigation">
-            <NuxtLink to="/recieveTON">
+            <NuxtLink to="/sendTON">
               <button class="transaction-btn">
                 <img src="public/send.svg" alt="Send">
                 <p class="transaction-txt">Send</p>
