@@ -16,40 +16,29 @@
     <Transition name="fade-cont">
       <div class="backrounds">
           <form class="form-settings" id="registration-form" @submit.prevent="loginUser">
-            <div class="register-form">
-              <p class="register-txt">Authorization</p>
-
-              <p class="form-placholder">Email</p>
+              <p class="form-placholders">Email</p>
               <input 
                 type="email" 
                 id="login-email" 
                 name="login-email" 
                 v-model="loginForm.email" 
                 required
-                class="form-block"
+                class="form-blocks"
               />
 
 
-              <p class="form-placholder">Password</p>
+              <p class="form-placholders-two">Password</p>
               <input 
                 type="password" 
                 id="login-password" 
                 name="login-password" 
                 v-model="loginForm.password" 
                 required
-                class="form-block"
+                class="form-blocks"
               />
               <p class="errors-txt" v-if="showError">{{ catchError }}</p>
 
-
-            </div>
-
-            <button class="register-btn" type="submit">Done</button>
-            <NuxtLink to="/">
-              <p class="auth-txt">
-                Don't have an account yet?
-              </p>
-            </NuxtLink>
+            <button class="register-btns" type="submit">Done</button>
           </form>
         </div>
     </Transition>
@@ -231,7 +220,7 @@ button {
 }
 
 .backrounds {
-    background: rgb(12, 13, 14);
+    background: none;
     width: 100%;
     height: 1200px;
     display: flex;
@@ -250,32 +239,47 @@ button {
   margin: 100px 0px 0px 0px;
 }
 
-.form-placholder {
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0%;
+.form-placholders {
+  color: rgb(108, 114, 120);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: -2%;
   text-align: left;
+  width: 327px;
   height: 21px;
-  width: 284px;
-  margin: 25px 0px 6px 0px;
+  margin: 25px 0px 2px 0px;
 }
 
-.form-block {
-  border-radius: 5px;
-  background: rgb(32, 66, 245);
-  width: 260px;
-  height: 30px;
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
+.form-placholders-two {
+  color: rgb(108, 114, 120);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: -2%;
+  text-align: left;
+  width: 327px;
+  height: 21px;
+  margin: 15px 0px 2px 0px;
+}
+
+.form-blocks {
+  box-sizing: border-box;
+  border: 1px solid rgb(237, 241, 243);
+  border-radius: 10px;
+  width: 327px;
+  height: 46px;
+  box-shadow: 0px 1px 2px 0px rgba(228, 229, 231, 0.24);
+  background: rgb(255, 255, 255);
+  color: rgb(26, 28, 30);
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0%;
+  line-height: 140%;
+  letter-spacing: -1%;
   text-align: left;
-  border: none;
 }
 
 input {
@@ -304,19 +308,21 @@ input {
   margin: 0px 0px 19px 0px;
 }
 
-.register-btn {
-  border-radius: 12px;
-  width: 295px;
-  height: 52px;
-  background: rgb(10, 40, 244);
+.register-btns {
+  box-sizing: border-box;
+  border-radius: 10px;
   color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
   letter-spacing: -1%;
   text-align: center;
-  margin: 15px 0px 0px 0px;
+  width: 327px;
+  height: 48px;
+  box-shadow: 0px 0px 0px 1px rgb(55, 93, 251),0px 1px 2px 0px rgba(37, 62, 167, 0.48);
+  background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.12),rgba(255, 255, 255, 0) 100%),rgb(29, 97, 231);
+  margin: 24px 0px 0px 0px;
 }
 
 .form-settings {
