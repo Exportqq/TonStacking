@@ -39,6 +39,9 @@
 
           <div>
             <p class="balance">{{ userBalance }} TON</p>
+            <p class="balance-txt-status" v-if="userBalance >= 100 && userBalance <= 249">Staking will end in 31 days</p>
+            <p class="balance-txt-status" v-if="userBalance >= 250 && userBalance <= 319">Staking will end in 21 days</p>
+            <p class="balance-txt-status" v-if="userBalance >= 320">Staking will end in 14 days</p>
           </div>
 
 
@@ -578,7 +581,7 @@ button {
   letter-spacing: 0px;
   text-align: center;
   width: 100%;
-  height: 60px;
+  height: 50px;
   margin: 59px 0px 0px 0px;
 }
 
@@ -823,5 +826,29 @@ a {
 .fade-cont-enter-to,
 .fade-cont-leave-from {
     opacity: 1;
+}
+
+.balance-txt-status {
+  color: rgb(255, 255, 255);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: -1%;
+  text-align: center;
+}
+
+/* Добавляем стили для центрирования спиннера */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF; /* или любой другой цвет фона */
+    z-index: 9999;
 }
 </style>
