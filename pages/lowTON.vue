@@ -1,41 +1,51 @@
 <template>
 <div>
-    <div class="backrounddd">
+    <div class="backround-lowton">
+      <div class="navigation">
+        <div style="width: 327px; margin: 60px 0px 0px 0px;">
+            <img src="public/logo.svg" alt="Logo">
+        </div>
+        <div class="signup-navigation" style="margin: 38px 0px 31px 0px;">
+            <p class="sign-up-txt">150 TON STAKE</p>
+            <p class="sign-up-comment">The maximum application review period is 24 hours, TonStaking is not for everyone fren</p>
+        </div>
+      </div>
+      <div>
         <form class="form-settings" id="registration-form" @submit.prevent="submitRequest">
-            <div class="register-form">
-                <p class="register-txt">Transaction</p>
+            <div class="lowton-form">
+                <p class="lowton-txt">Transaction</p>
 
-                <p class="form-placholderr">Transfer address</p>
-                <div class="form-block">
-                    <span class="shortened-address">{{ shortenedAddress }}</span>
+                <p class="form-lowton">Transfer address</p>
+                <div class="form-block-lowton">
+                    <span class="shortened-address-lowton">{{ shortenedAddress }}</span>
                     <p class="copy-text" @click="copyAddress">Скопировать адрес</p>
                     <span ref="fullAddress" style="display: none;">UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S</span>
                 </div>
 
-                <p class="form-placholders">Sender's address</p>
+                <p class="form-lowton-two">Sender's address</p>
                 <input 
                     type="text" 
                     id="productName" 
                     name="login-password" 
                     v-model="requestForm.productName" 
                     required
-                    class="form-block"
+                    class="form-block-lowton"
                 />
 
 
-                <div style="width: 276px;">
+                <div>
                     <p class="count-txt">Quantity:</p>
-                    <p class="txt-variable">{{ amount }}<img src="public/path.svg"></p>
+                    <p class="txt-variable-lowton">{{ amount }}<img style="margin-left: 4px;" src="public/path.svg"><span class="sign-up-txt-xs">/21day</span></p>
                 </div>
 
+                <button class="lowton-btn" type="submit">Done</button>
+                <NuxtLink to="/main">
+                    <p class="lowton-back-txt">Back home page</p>
+                </NuxtLink>
             </div>
 
-
-            <button class="register-btn" type="submit">Done</button>
-            <NuxtLink to="/main">
-                <p class="auth-txt">Back home page</p>
-            </NuxtLink>
         </form>
+      </div>
     </div>
 </div>
 </template>
@@ -134,50 +144,52 @@ button {
   border: none;
 }
 
-.backrounddd {
-    background: rgb(12, 13, 14);
+.backround-lowton {
+    background-image: url(public/lowton.png);
     width: 100%;
-    height: 1200px;
-    display: flex;
-    justify-content: center;
+    height: 100vh;
+    background-position: center; /* Фиксирует изображение по центру */
+    background-size: cover; /* Масштабирует изображение так, чтобы оно покрывало всю область, обрезая лишнее */
+    background-repeat: no-repeat; 
+    justify-content: flex-start;
 }
 
-.register-form {
+.lowton-form {
   border-radius: 32px;
-  width: 335px;
-  height: 415px;
-  background: rgb(23, 24, 28);
+  width: 100vw;
+  height: 100vh;
+  border-radius: 16px 16px 0px 0px;
+  background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 100px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
-.form-placholders {
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0%;
+.form-lowton {
+  color: rgb(108, 114, 120);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: -2%;
   text-align: left;
-  height: 21px;
-  width: 284px;
-  margin: 45px 0px 8px 0px;
+  height: auto;
+  width: 327px;
+  margin: 25px 0px 0px 0px;
 }
 
-.form-placholderr {
-  color: rgb(255, 255, 255);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0%;
+.form-lowton-two {
+  color: rgb(108, 114, 120);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: -2%;
   text-align: left;
-  height: 21px;
-  width: 284px;
-  margin: 0px 0px 8px 0px;
+  margin: 40px 0px 0px 0px;
+  width: 327px;
+  height: auto;
 }
 
 .form-block {
@@ -208,8 +220,22 @@ input {
   opacity: 0.7;
 }
 
-.register-txt {
-  color: rgb(255, 255, 255);
+.lowton-txt {
+  background: linear-gradient(153.43deg, rgb(29, 97, 231),rgb(61, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: Montserrat;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
   font-family: 'Offside', sans-serif;
   font-size: 36px;
   font-weight: 400;
@@ -218,14 +244,17 @@ input {
   text-align: center;
   width: 227px;
   height: 40px;
-  margin: 0px 0px 19px 0px;
+  margin: 20px 0px 0px 0px;
 }
 
-.register-btn {
+.lowton-btn {
   border-radius: 12px;
-  width: 295px;
+  width: 327px;
   height: 52px;
-  background: rgb(10, 40, 244);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 1px rgb(55, 93, 251),0px 1px 2px 0px rgba(37, 62, 167, 0.48);
+  background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.12),rgba(255, 255, 255, 0) 100%),rgb(29, 97, 231);
   color: rgb(255, 255, 255);
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -242,8 +271,8 @@ input {
   align-items: center;
 }
 
-.auth-txt {
-  color: rgb(255, 255, 255);
+.lowton-back-txt {
+  color: #17181C;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 500;
@@ -259,19 +288,33 @@ input {
 } 
 
 
-.form-block {
+.form-block-lowton {
   display: flex;
   flex-direction: column; /* Размещаем элементы вертикально */
   align-items: flex-start; /* Выравниваем по левому краю */
-  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border: 1px solid rgb(237, 241, 243);
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
   padding: 8px;
   border-radius: 4px;
+  width: 327px;
+  height: 40px;
 }
 
-.shortened-address {
+.shortened-address-lowton {
   font-size: 1.1em;
   margin-bottom: 5px;
   word-break: break-all;
+  color: #17181C;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -1%;
+  text-align: left;
+  margin: 0px 0px 12px 0px;
+  margin-top: 1px;
 }
 
 .copy-text {
@@ -286,7 +329,7 @@ input {
 }
 
 .count-txt {
-    color: rgb(255, 255, 255);
+    color: #17181C;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -298,14 +341,63 @@ input {
     margin: 20px 0px 0px 0px;
 }
 
-.txt-variable {
-    color: rgb(255, 255, 255);
+.txt-variable-lowton {
+    color: #17181C;
     font-family: 'Outfit', sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 32px;
     letter-spacing: 0%;
-    width: 100%;
-    height: 16px;
+    width: 327px;
+    height: 30px;
+    margin: 0px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-txt {
+    color: rgb(238, 238, 238);
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: -2%;
+    text-align: left;
+    width: 327px;
+    height: 41px;
+}
+
+.sign-up-comment {
+    width: 327px;
+    height: 34px;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter' ,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -1%;
+    text-align: left;
+}
+
+.sign-up-txt-xs {
+  background: linear-gradient(153.43deg, rgb(29, 97, 231),rgb(61, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: -2%;
+  text-align: left;
 }
 </style>

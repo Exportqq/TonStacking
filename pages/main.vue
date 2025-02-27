@@ -10,7 +10,7 @@
         <div id="app">
           <atom-spinner
             :animation-duration="1200"
-            :size="60"
+            :size="100"
             :color="'#25A3E2'"
           />
         </div>
@@ -78,7 +78,7 @@
                       <p class="ton-price">180</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                   <ul style="margin: 3px 24px 0px 0px;">
@@ -94,7 +94,7 @@
                       <p class="ton-price">245</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                 </div>
@@ -115,7 +115,7 @@
                       <p class="ton-price">250</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                   <ul style="margin: 3px 24px 0px 0px;">
@@ -131,7 +131,7 @@
                       <p class="ton-price">360</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                 </div>
@@ -152,7 +152,7 @@
                       <p class="ton-price">390</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                   <ul style="margin: 3px 24px 0px 0px;">
@@ -168,7 +168,7 @@
                       <p class="ton-price">590</p>
                     </li>
                     <li>
-                      <img style="margin: 0px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
                     </li>
                   </ul>
                 </div>
@@ -487,7 +487,7 @@ export default {
           this.referralCount = 0;
           this.referralCode = '';
           this.referralLink = '';
-          router.push({ path: "/login" });
+          router.push({ path: "/" });
         }
       } catch (error) {
         console.error('Общая ошибка при выходе из системы:', error);
@@ -720,14 +720,17 @@ a {
   border-radius: 16px;
   width: 339px;
   height: 100px;
-  background: rgb(32, 34, 43);
+  box-sizing: border-box;
+  border: 1px solid rgb(23, 24, 28);
+  border-radius: 16px;
+  background: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   margin: 15px 0px 0px 0px;
 }
 
 .stake-block-txt {
-  color: rgb(255, 255, 255);
+  color: #17181C;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -759,7 +762,7 @@ a {
 }
 
 .ton-price {
-  color: rgb(255, 255, 255);
+  color: #17181C;
   font-family: 'Outfit', sans-serif;
   font-size: 20px;
   font-weight: 500;

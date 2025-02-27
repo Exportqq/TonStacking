@@ -6,7 +6,7 @@
                 <div id="app">
                     <atom-spinner
                         :animation-duration="1200"
-                        :size="60"
+                        :size="100"
                         :color="'#25A3E2'"
                     />
                 </div>
@@ -32,8 +32,8 @@
                     <p class="promote-txt">Referral promotion</p>
                     <div class="promote-block">
                         <div style="height: 20px; display: flex; width: 120px; align-items: center; margin: 0 0 0 43px;">
-                            <div style="margin-right: 8px;">
-                                <img src="public/path.svg" alt="Path">
+                            <div style="margin: 2px 2px 0px 0px;">
+                                <img src="public/ton.svg" alt="Path">
                             </div>
                             <div>
                                 <p class="promote-name">Promotion</p>
@@ -385,7 +385,7 @@ export default {
 }
 
 .profile-backround {
-    background: rgb(12, 13, 14);
+    background: #1D61E7;
     width: 100%;
     height: 1200px;
     display: flex;
@@ -400,7 +400,10 @@ export default {
     width: 335px;
     height: 560px;
     border-radius: 32px;
-    background: rgb(23, 24, 28);
+    box-sizing: border-box;
+    border: 2px solid rgb(237, 241, 243);
+    border-radius: 32px;
+    background: rgb(255, 255, 255);
     margin: 120px 0px 0px 0px;
     display: flex;
     flex-direction: column;
@@ -429,7 +432,7 @@ export default {
 
 
 .profile-name {
-    color: rgb(255, 255, 255);
+    color: rgb(23, 24, 28);
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -453,7 +456,11 @@ export default {
     border-radius: 20px;
     width: 295px;
     height: 68px;
-    background: rgb(32, 34, 43);
+    box-sizing: border-box;
+    border: 1px solid rgb(237, 241, 243);
+    border-radius: 20px;
+    box-shadow: -4px -3px 0px 0px rgb(37, 163, 226);
+    background: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,7 +469,7 @@ export default {
 
 .support-txt {
     /* Body/16/Semibold */
-    color: rgb(255, 255, 255);
+    color: rgb(23, 24, 28);
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -471,11 +478,11 @@ export default {
     text-align: left;
     width: 59px;
     height: 44px;
-    margin: 0px 129px 0px 12px;
+    margin: 0px 110px 0px 12px;
 }
 
 .promote-txt {
-    color: rgb(255, 255, 255);
+    color: rgb(23, 24, 28);
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -525,14 +532,17 @@ export default {
 /* Стили для реферальной системы */
 .referral-block {
   width: 265px;
-  background: rgb(32, 34, 43);
+  box-sizing: border-box;
+  border: 1px solid rgb(237, 241, 243);
+  box-shadow: -4px -3px 0px 0px rgb(37, 163, 226);
+  background: rgb(255, 255, 255);
   border-radius: 16px;
   padding: 15px;
   margin-top: 20px;
 }
 
 .referral-title {
-  color: rgb(255, 255, 255);
+  color: #17181C;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -541,7 +551,7 @@ export default {
 }
 
 .referral-count {
-  color: rgb(255, 255, 255);
+  color: #17181C;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   margin-bottom: 10px;
@@ -555,7 +565,7 @@ export default {
 
 .referral-link {
   flex: 1;
-  background: rgb(23, 24, 28);
+  background: #1D61E7;
   border: none;
   border-radius: 4px;
   padding: 8px;
@@ -566,7 +576,7 @@ export default {
 }
 
 .copy-btn {
-  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+  background: #1D61E7;
   color: white;
   border: none;
   border-radius: 4px;
@@ -586,7 +596,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #17181C; /* или любой другой цвет фона */
+    background-color: #FFFFFF; /* или любой другой цвет фона */
     z-index: 9999;
 }
 
@@ -599,7 +609,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #17181C;
+    background-color: #FFFFFF;
     z-index: 9999;
 }
 
