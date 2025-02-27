@@ -2,37 +2,34 @@
   <div>
       <div class="backroundd">
         <form class="form-settings" id="registration-form" @submit.prevent="registerUser">
-          <div class="register-form">
-            <p class="register-txt">Registration</p>
-
-            <p class="form-placholder">Name</p>
-            <input 
-              type="text" 
-              id="reg-name" 
-              name="reg-name" 
-              v-model="registrationForm.name" 
-              required
-              class="form-block"
-            />
-        
-            <p class="form-placholder">Password</p>
-            <input 
-              type="password" 
-              id="reg-password" 
-              name="reg-password" 
-              v-model="registrationForm.password" 
-              required
-              class="form-block"
-            />
-
-            <p class="form-placholder">Email</p>
+            <p class="form-placholders">Email</p>
             <input 
               type="email" 
               id="reg-email" 
               name="reg-email" 
               v-model="registrationForm.email" 
               required
-              class="form-block"
+              class="form-blocks"
+            />
+        
+            <p class="form-placholders-two">Name</p>
+            <input 
+              type="text" 
+              id="reg-name" 
+              name="reg-name" 
+              v-model="registrationForm.name"
+              required
+              class="form-blocks"
+            />
+
+            <p class="form-placholders-two">Password</p>
+            <input 
+              type="password" 
+              id="reg-password" 
+              name="reg-password" 
+              v-model="registrationForm.password"
+              required
+              class="form-blocks"
             />
 
             <p class="errors-txt" v-if="showError">{{ catchError }}</p>
@@ -41,14 +38,8 @@
             <p v-if="referrerCode" class="referral-info">
               Приглашены пользователем с кодом: {{ referrerCode }}
             </p>
-          </div>
 
-          <button class="register-btn" type="submit">Done</button>
-          <NuxtLink to="login">
-            <p class="auth-txt">
-              You already have an account ?
-            </p>
-          </NuxtLink>
+          <button class="register-btns" type="submit">Done</button>
         </form>
       </div>
   </div>
@@ -297,7 +288,7 @@ border: none;
 }
 
 .backroundd {
-  background: rgb(12, 13, 14);
+  background: none;
   width: 100%;
   height: 1200px;
   display: flex;

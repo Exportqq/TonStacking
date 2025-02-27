@@ -31,9 +31,14 @@
                     </div>
                 </div>
 
-                <div v-if="isLoginActive">
-                    <Auth/>
-                </div>
+                <transition :name="transitionName" mode="out-in">
+                    <div v-if="isLoginActive" key="login" class="auth-slide">
+                        <Auth />
+                    </div>
+                    <div v-else key="register" class="auth-slide">
+                        <Register />
+                    </div>
+                </transition>
                 <!-- Контейнер для форм (можно раскомментировать и настроить под ваши нужды) -->
                 <!-- <div class="form-container">
                     <div class="form login-form" :class="{ active: isLoginActive }">
@@ -50,10 +55,13 @@
 
 <script>
 import auth from '~/components/auth.vue';
+import register from './register.vue';
+
 
 export default {
     data() {
         return {
+            
             isLoginActive: true 
         };
     },
@@ -61,7 +69,18 @@ export default {
         setActive(type) {
             this.isLoginActive = type === 'login';
         }
-    }
+    },
+    watch: {
+    isLoginActive(newVal, oldVal) {
+      if (newVal) {
+        // Переход к Login (Register -> Login)
+        this.transitionName = 'slide-right';
+      } else {
+        // Переход к Register (Login -> Register)
+        this.transitionName = 'slide-left';
+      }
+    },
+  },
 }
 </script>
 
@@ -235,4 +254,69 @@ export default {
     opacity: 1;
     transform: translateX(0);
 } */
+
+.auth-container {
+  position: relative;
+  width: 300px; /* Примерная ширина контейнера */
+  height: auto; /* Автоматическая высота */
+  overflow: hidden; /* Чтобы скрыть выходящие элементы */
+}
+
+.auth-slide {
+  top: 0; /* Удерживаем элемент вверху */
+  left: 0;
+  width: 100%;
+}
+
+/* Анимация при переходе влево (Login -> Register) */
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out; /* Анимируем только transform и opacity */
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-left-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-left-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Анимация при переходе вправо (Register -> Login) */
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out; /* Анимируем только transform и opacity */
+}
+
+.slide-right-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-right-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
 </style>

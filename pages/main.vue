@@ -39,23 +39,25 @@
 
           <div>
             <p class="balance">{{ userBalance }} TON</p>
-            <div class="transaction-navigation">
-              <NuxtLink to="/recieveTON">
-                <button class="transaction-btn">
-                  <img src="public/send.svg" alt="Send">
-                  <p class="transaction-txt">Send</p>
-                </button>
-              </NuxtLink>
-              <div class="vertical-line"></div>
-              <NuxtLink to="/lowTON">
-                <button class="transaction-btn">
-                  <img src="public/wallet.svg" alt="Receive">
-                  <p class="transaction-txt">Receive</p>
-                </button>
-              </NuxtLink>
-            </div>
           </div>
 
+
+        <div class="backroud-all-block">
+          <div class="transaction-navigation">
+            <NuxtLink to="/recieveTON">
+              <button class="transaction-btn">
+                <img src="public/send.svg" alt="Send">
+                <p class="transaction-txt">Send</p>
+              </button>
+            </NuxtLink>
+            <div class="vertical-line"></div>
+            <NuxtLink to="/lowTON">
+              <button class="transaction-btn">
+                <img src="public/wallet.svg" alt="Receive">
+                <p class="transaction-txt">Receive</p>
+              </button>
+            </NuxtLink>
+         </div>
           <div class="staking-header">
             <div class="horizontal-line"></div>
             <p class="stake-txt">Staking</p>
@@ -173,6 +175,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </Transition>
@@ -515,7 +518,7 @@ html {
   justify-content: flex-start;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(180.00deg, rgb(14, 23, 88),rgb(12, 13, 14) 20.312%),rgb(12, 13, 14);
+  background: rgb(29, 97, 231);
 }
 
 ul li {
@@ -526,6 +529,14 @@ ul li {
 button {
   background: none;
   border: none;
+}
+
+.backroud-all-block {
+  border-radius: 20px 20px 0px 0px;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  margin: 20px 0px 0px 0px ;
 }
 
 .user-name {
@@ -574,7 +585,7 @@ button {
 .transaction-txt {
   width: 100%;
   height: 20px;
-  color: rgb(255, 255, 255);
+  color: rgb(23, 24, 28);
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -587,13 +598,11 @@ button {
 .transaction-btn {
   width: 85px;
   height: 76px;
+  box-sizing: border-box;
+  border: 1px solid rgb(23, 24, 28);
   border-radius: 24px;
-  background: rgb(23, 24, 28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  float: left;
+  box-shadow: -4px -3px 0px 0px rgb(29, 97, 231),0px 0px 18px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255);
 }
 
 .vertical-line {
@@ -647,7 +656,8 @@ button {
 }
 
 .copy-btn {
-  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+  border-radius: 4px;
+  background: linear-gradient(120.09deg, rgb(29, 97, 231) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(29, 97, 231) 281.515%);
   color: white;
   border: none;
   border-radius: 4px;
@@ -674,17 +684,21 @@ button {
   margin: 30px 0px 20px 0px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .horizontal-line {
   flex-grow: 1; /* Линии занимают все доступное пространство */
   height: 1px;
-  background: linear-gradient(90deg, rgb(21, 53, 244), rgba(14, 21, 74, 0) 100%);
+  background: linear-gradient(90.00deg, rgb(29, 97, 231),rgba(14, 21, 74, 0) 100%);
 }
 
 .horizontal-line-two {
   transform: rotate(180deg);
   flex-grow: 1; /* Линии занимают все доступное пространство */
   height: 1px;
-  background: linear-gradient(90deg, rgb(21, 53, 244), rgba(14, 21, 74, 0) 100%);
+  background: linear-gradient(90.00deg, rgb(29, 97, 231),rgba(14, 21, 74, 0) 100%);
 }
 
 .horizontal-line:last-child {
@@ -693,7 +707,7 @@ button {
 }
 
 .stake-txt {
-  color: rgb(255, 255, 255);
+  color: rgb(23, 24, 28);
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -740,7 +754,8 @@ button {
   align-items: center;
   justify-content: center;
   margin: 37px 0px 0px 14px;
-  background: linear-gradient(120.09deg, rgb(0, 33, 255) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(10, 40, 244) 281.515%);
+  border-radius: 4px;
+  background: linear-gradient(120.09deg, rgb(29, 97, 231) -33.497%,rgba(0, 33, 255, 0) 281.515%,rgb(10, 40, 244) 281.515%,rgb(29, 97, 231) 281.515%);
 }
 
 .ton-price {
