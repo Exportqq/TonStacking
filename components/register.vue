@@ -304,7 +304,13 @@ float: left;
 
 html {
   overflow: hidden;
-  touch-action: manipulation; /* Отключает двойной тап и зум */
+  touch-action: manipulation;
+}
+
+body {
+  height: 80vh; /* 80% высоты окна просмотра */
+  overflow-y: auto; /* Включает вертикальный скролл */
+  margin: 0;
 }
 
 button {
