@@ -207,7 +207,7 @@ export default {
             //window.location.reload();
             setTimeout(() => {
               this.requestSuccess = false; // Закрываем модальное окно через 5 секунд
-            }, 5000);
+            }, 50000);
 
             //router.push({ path: "/Tonlog" })
           }
@@ -452,6 +452,7 @@ text-align: center;
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.5s;
+  z-index: 10;
 }
 
 .modal-content {
