@@ -713,7 +713,7 @@ a {
   color: rgb(23, 24, 28);
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0 20px; /* Отступы от текста до линий */
   padding: 0;
   line-height: 1; /* Уменьшаем line-height для лучшего выравнивания */

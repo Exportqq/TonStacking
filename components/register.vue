@@ -41,6 +41,14 @@
 
           <button class="register-btns" type="submit">Done</button>
         </form>
+        <div v-if="requestSuccess" class="modal">
+          <div class="modal-content">
+            <div>
+              <img class="approve-gif" src="public/approve.gif">
+            </div>
+            <p class="approve-txt">Registration was successful</p>
+          </div>
+        </div>
       </div>
   </div>
 </template>
@@ -66,6 +74,8 @@ export default {
         email: '',
         password: ''
       },
+      requestSuccess: false,
+      requestError: null,
       registrationSuccess: false,
       registrationError: null,
       loginError: null,
@@ -158,47 +168,57 @@ export default {
 
     // Генерация уникального реферального кода
     generateReferralCode() {
-      return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
-    },
+        return Math.random().toString(36).substring(2, 10); // Генерируем случайный код из 8 символов
+      },
 
-    async registerUser() {
-      const router = useRouter()
-      this.registrationError = null;
-      this.registrationSuccess = false;
+      async registerUser() {
+        const router = useRouter()
+        this.registrationError = null;
+        this.registrationSuccess = false;
 
-      try {
-        const { error, data } = await supabase.auth.signUp({
-          email: this.registrationForm.email,
-          password: this.registrationForm.password,
-          options: {
-            data: {
-              full_name: this.registrationForm.name,
+        try {
+          const { error, data } = await supabase.auth.signUp({
+            email: this.registrationForm.email,
+            password: this.registrationForm.password,
+            options: {
+              data: {
+                full_name: this.registrationForm.name,
+              }
             }
+          });
+
+          if (error) {
+            this.catchError = 'Password is not less than 6 characters or this email is busy'
+            this.triggerError();
+            console.error('Ошибка регистрации:', error);
+            this.registrationError = error.message;
+          } else {
+            console.log('Регистрация успешна:', data);
+            this.registrationSuccess = true;
+            this.requestSuccess = true; // Устанавливаем сразу после успешной регистрации
+
+            // Создаем профиль пользователя с реферальным кодом
+            await this.createUserProfile(data.user.id, this.registrationForm.name);
+
+            this.registrationForm = { name: '', email: '', password: '' };
+            this.requestForm.productName = ''; // Очищаем поле формы
+            
+            // Перенаправляем на страницу входа
+            //window.location.reload();
+            setTimeout(() => {
+              this.requestSuccess = false; // Закрываем модальное окно через 5 секунд
+            }, 5000);
+
+            //router.push({ path: "/Tonlog" })
           }
-        });
-
-        if (error) {
-          this.catchError = 'Password is not less than 6 characters or this email is busy'
-          this.triggerError();
-          console.error('Ошибка регистрации:', error);
-          this.registrationError = error.message;
-        } else {
-          console.log('Регистрация успешна:', data);
-          this.registrationSuccess = true;
-
-          // Создаем профиль пользователя с реферальным кодом
-          await this.createUserProfile(data.user.id, this.registrationForm.name);
-
-          this.registrationForm = { name: '', email: '', password: '' };
-
-          // Перенаправляем на страницу входа
-          window.location.reload();
+        } catch (error) {
+          console.error('Общая ошибка при регистрации:', error);
+          this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+          setTimeout(() => {
+            this.requestSuccess = false; // Закрываем модальное окно через 5 секунд в случае ошибки
+          }, 5000);
         }
-      } catch (error) {
-        console.error('Общая ошибка при регистрации:', error);
-        this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
-      }
-    },
+      },
 
     async createUserProfile(userId, userName) {
       try {
@@ -419,5 +439,96 @@ text-align: center;
   height: 14px;
   margin: 10px 0px 0px 0px ;
   width: 240px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: zoomIn 0.5s;
+}
+
+.checkmark {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #4CAF50;
+  display: inline-block;
+  margin-bottom: 10px;
+  animation: pulse 1s infinite;
+}
+
+.checkmark svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.approve-txt {
+  background: linear-gradient(153.43deg, rgb(29, 97, 231),rgb(61, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.approve-gif {
+   height: 188px;
+   width: 188px;
 }
 </style>

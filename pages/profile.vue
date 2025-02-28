@@ -26,22 +26,28 @@
                   <p class="profile-email">{{ userEmail }}</p>
                   <div class="profil-set">
                     <div style="margin: 14px 0px 0px 16px;">
-                      <button style="display: flex;align-items: center;">
-                        <img style="height: 24px; width: 24px;" src="public/support.svg">
-                        <p class="profile-set-txt">Help & Support</p>
-                      </button>
+                      <NuxtLink to="https://telegra.ph/What-is-TonStaker-02-28">
+                        <button style="display: flex;align-items: center;">
+                          <img style="height: 24px; width: 24px;" src="public/support.svg">
+                          <p class="profile-set-txt">Help & Support</p>
+                        </button>
+                      </NuxtLink>
                     </div>
                     <div style="margin: 10px 0px 0px 16px;">
-                      <button style="display: flex;align-items: center;">
-                        <img style="height: 24px; width: 24px;" src="public/wallet2.svg">
-                        <p class="profile-set-txt">How to create a TON wallet</p>
-                      </button>
+                      <NuxtLink to="https://telegra.ph/How-to-create-a-TON-wallet-02-28">
+                        <button style="display: flex;align-items: center;">
+                          <img style="height: 24px; width: 24px;" src="public/wallet2.svg">
+                          <p class="profile-set-txt">How to create a TON wallet</p>
+                        </button>
+                      </NuxtLink>
                     </div>
                     <div style="margin: 10px 0px 0px 16px;">
-                      <button style="display: flex;align-items: center;">
-                        <img style="height: 24px; width: 24px;" src="public/guid.svg">
-                        <p class="profile-set-txt">What is TonStaker</p>
-                      </button>
+                      <NuxtLink>
+                        <button style="display: flex;align-items: center;">
+                          <img style="height: 24px; width: 24px;" src="public/guid.svg">
+                          <p class="profile-set-txt">What is TonStaker</p>
+                        </button>
+                      </NuxtLink>
                     </div>
                   </div>
                   <div>
