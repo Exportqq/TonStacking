@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
       <div class="backroundd">
         <form class="form-settings" id="registration-form" @submit.prevent="registerUser">
             <p class="form-placholders">Email</p>
@@ -304,18 +304,7 @@ float: left;
 
 html {
   overflow: hidden;
-  touch-action: manipulation;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-}
-
-.scroll-container {
-  height: 80vh; /* 80% высоты окна просмотра */
-  overflow-y: auto; /* Включает вертикальный скролл */
-  width: 100%;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
 }
 
 button {
