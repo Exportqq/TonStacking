@@ -62,7 +62,7 @@ export default {
     data() {
         return {
             
-            isLoginActive: true 
+            isLoginActive: false 
         };
     },
     methods: {
@@ -119,7 +119,7 @@ export default {
 }
 
 .signup-block {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     border-radius: 16px 16px 0px 0px;
     background: #FFFFFF;
@@ -192,7 +192,10 @@ export default {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     letter-spacing: -2%;
     box-sizing: border-box;
     border: none; /* Убираем границы кнопок */
@@ -202,6 +205,7 @@ export default {
     z-index: 2; /* Кнопки поверх ползунка */
     transition: color 0.3s ease; /* Плавное изменение цвета текста */
     margin:2px; /* Добавляем отступ 2px с каждой стороны кнопок */
+    padding: 0px 0px 5px 0px;
 }
 
 /* Стили для активной кнопки */
@@ -210,9 +214,13 @@ export default {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     letter-spacing: -2%;
     text-align: center;
+    padding: 0px 0px 5px 0px;
 }
 
 /* Стили для неактивной кнопки */
@@ -221,9 +229,13 @@ export default {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     letter-spacing: -2%;
     text-align: center;
+    padding: 0px 0px 5px 0px;
 }
 
 /* Стили для контейнера форм (раскомментируйте, если используете формы) */

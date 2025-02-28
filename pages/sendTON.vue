@@ -15,4 +15,3 @@ import send from '~/components/send.vue';
 <style lang="scss" scoped>
 
 </style>
-
