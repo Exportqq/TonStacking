@@ -47,8 +47,24 @@
                   <div>
                     <p class="promote-txt">Referral promotion</p>
                     <div class="promote-block">
-
+                      <p class="referral-count-profile">Friends invited: {{ referralCount }}</p>
+                        <div class="referral-link-container">
+                            <input type="text" class="referral-link-profile" :value="referralLink" readonly />
+                            <button @click="copyReferralLink" class="copy-btn-profile">Copy</button>
+                        </div>
+                        <div>
+                          <p class="promotion-txt">Terms of the promotion:</p>
+                          <p class="promotion-txt-two">1. Invite 5 friends</p>
+                          <p class="promotion-txt-two">2. Your 5 friends should have a TON<br>in staking</p>
+                        </div>
+                        <div>
+                          <p class="reward-txt">Reward:</p>
+                          <p class="promotion-txt-two">80 <img style="margin: 0px 0px 0px 2px;" src="public/rewardton.svg"></p>
+                        </div>
                     </div>
+                    <NuxtLink to="/main">
+                      <p class="back-main-txt">Back home page</p>
+                  </NuxtLink>
                 </div>
                 </div>
                 
@@ -440,7 +456,7 @@ export default {
 
 
 .profile-name {
-    color: rgb(23, 24, 28);
+    color: #17181C;
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -548,40 +564,60 @@ export default {
   text-align: center;
 }
 
-.referral-count {
-  color: #17181C;
-  font-family: 'Montserrat', sans-serif;
+.referral-count-profile {
+  background: linear-gradient(142.59deg, rgb(29, 97, 231),rgb(62, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -1%;
+  text-align: left;
+  margin: 19px 0px 0px 0px;
+  width: 283px;
 }
 
 .referral-link-container {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  width: 283px;
 }
 
-.referral-link {
+.referral-link-profile {
   flex: 1;
-  background: #1D61E7;
-  border: none;
+  box-sizing: border-box;
+  border: 2px solid rgb(237, 241, 243);
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
   border-radius: 4px;
-  padding: 8px;
-  color: white;
+  color: black;
+  margin: 0px;
+  padding: 5px 0px 5px 5px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  margin-right: 5px;
+  width: 200px;
+  height: 26px;
 }
 
-.copy-btn {
-  background: #1D61E7;
-  color: white;
-  border: none;
+.copy-btn-profile {
   border-radius: 4px;
-  padding: 8px 12px;
+  border: none;
+  color: #FFFFFF;
+  background: linear-gradient(132.02deg, rgb(29, 97, 231) 0%,rgb(62, 119, 234) 110.341%);
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   cursor: pointer;
+  width: 74px;
+  height: 26px;
+  margin: 0px 0px 0px 9px;
 }
 
 /* Добавляем стили для центрирования спиннера */
@@ -669,5 +705,73 @@ export default {
   width: 335px;
   height: 225px;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promotion-txt {
+  background: linear-gradient(142.59deg, rgb(29, 97, 231),rgb(62, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -1%;
+  text-align: left;
+  width: 283px;
+  margin: 20px 0px 0px 0px;
+}
+
+.promotion-txt-two {
+  color: #17181C;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -1%;
+  text-align: left;
+  width: 283px;
+  display: flex;
+  transform: translateX(15px);
+}
+
+.reward-txt {
+  background: linear-gradient(142.59deg, rgb(29, 97, 231),rgb(62, 119, 234));
+  -webkit-background-clip:
+  text;
+  -webkit-text-fill-color:
+  transparent;
+  background-clip:
+  text;
+  text-fill-color:
+  transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -1%;
+  text-align: left;
+  width: 283px;
+  margin: 5px 0px 0px 0px;
+}
+
+.back-main-txt {
+  color: #17181C;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 295px;
+  height: 17px;
+  margin: 4px 0px 0px 0px;
 }
 </style>
