@@ -222,7 +222,7 @@ button {
 .backrounds {
     background: none;
     width: 100%;
-    height: 1200px;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
