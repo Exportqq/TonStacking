@@ -770,8 +770,8 @@ export default {
   font-weight: 500;
   letter-spacing: 0%;
   text-align: center;
-  width: 295px;
+  width: 327px;
   height: 17px;
-  margin: 4px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 </style>
