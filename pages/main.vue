@@ -141,42 +141,45 @@
               </div>
             </div>
 
-            <div class="stake-block">
-              <div style="float: left;">
-                <p class="stake-block-txt">Staking for 14 days</p>
-                <NuxtLink to="/highTON">
-                  <button class="stake-block-btn">Stake</button>
-                </NuxtLink>
-              </div>
-              <div style="float: left;">
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                  <ul class="ton-list">
-                    <li>
-                      <p class="ton-price">320</p>
-                    </li>
-                    <li>
-                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
-                    </li>
-                  </ul>
-                  <ul style="margin: 3px 24px 0px 0px;">
-                    <li>
-                      <p class="ton-procent">51%</p>
-                    </li>
-                    <li>
-                      <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg" alt="Swap">
-                    </li>
-                  </ul>
-                  <ul class="ton-list">
-                    <li>
-                      <p class="ton-price">485</p>
-                    </li>
-                    <li>
-                      <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
-                    </li>
-                  </ul>
+            <div style="padding: 0px 0px 100px 0px;">
+              <div class="stake-block">
+                <div style="float: left;">
+                  <p class="stake-block-txt">Staking for 14 days</p>
+                  <NuxtLink to="/highTON">
+                    <button class="stake-block-btn">Stake</button>
+                  </NuxtLink>
+                </div>
+                <div style="float: left;">
+                  <div style="display: flex; flex-direction: column; align-items: center;">
+                    <ul class="ton-list">
+                      <li>
+                        <p class="ton-price">320</p>
+                      </li>
+                      <li>
+                        <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      </li>
+                    </ul>
+                    <ul style="margin: 3px 24px 0px 0px;">
+                      <li>
+                        <p class="ton-procent">51%</p>
+                      </li>
+                      <li>
+                        <img style="margin: 0px 0px 0px 2px;" src="public/swap.svg" alt="Swap">
+                      </li>
+                    </ul>
+                    <ul class="ton-list">
+                      <li>
+                        <p class="ton-price">485</p>
+                      </li>
+                      <li>
+                        <img style="margin: 2px 0px 0px 4px;" src="public/path.svg" alt="Path">
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         </div>
