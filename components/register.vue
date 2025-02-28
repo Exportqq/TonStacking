@@ -302,6 +302,11 @@ list-style: none;
 float: left;
 }
 
+html {
+  overflow: hidden;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
+}
+
 button {
 background: none;
 border: none;

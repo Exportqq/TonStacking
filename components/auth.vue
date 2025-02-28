@@ -209,6 +209,11 @@ export default {
   padding: 0px;
 }
 
+html {
+  overflow: hidden;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
+}
+
 ul li {
   list-style: none;
   float: left;
