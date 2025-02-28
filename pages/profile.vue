@@ -16,46 +16,43 @@
         <!-- Показываем основной контент с анимацией fade-cont -->
         <Transition name="fade-cont">
             <div v-if="!isLoading" class="profile-backround">
-                <div class="profile-block">
-                    <img class="profile-img" src="public/user.svg" alt="User">
-                    <p class="profile-name">{{ userName }}</p>
-                    <p class="profile-email">{{ userEmail }}</p>
-                    <div class="support">
-                        <a href="/">
-                            <div style="display: flex; align-items: center;">
-                                <img style="margin-right: 8px;" src="public/telegram.svg" alt="Telegram">
-                                <p class="support-txt">Support</p>
-                                <img style="margin-left: 8px;" src="public/arrow.svg" alt="Arrow">
-                            </div>
-                        </a>
+              <div style="display: flex; justify-content: center;">
+                <img style="margin: 20px 0px 0px 0px;" src="public/tonstacker.svg">
+              </div>
+              <div style="margin: 70px 0px 0px 0px;">
+                <div class="profile-info-block">
+                  <img class="profile-img" src="public/user.svg" alt="User">
+                  <p class="profile-name">{{ userName }}</p>
+                  <p class="profile-email">{{ userEmail }}</p>
+                  <div class="profil-set">
+                    <div style="margin: 14px 0px 0px 16px;">
+                      <button style="display: flex;align-items: center;">
+                        <img style="height: 24px; width: 24px;" src="public/support.svg">
+                        <p class="profile-set-txt">Help & Support</p>
+                      </button>
                     </div>
+                    <div style="margin: 10px 0px 0px 16px;">
+                      <button style="display: flex;align-items: center;">
+                        <img style="height: 24px; width: 24px;" src="public/wallet2.svg">
+                        <p class="profile-set-txt">How to create a TON wallet</p>
+                      </button>
+                    </div>
+                    <div style="margin: 10px 0px 0px 16px;">
+                      <button style="display: flex;align-items: center;">
+                        <img style="height: 24px; width: 24px;" src="public/guid.svg">
+                        <p class="profile-set-txt">What is TonStaker</p>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
                     <p class="promote-txt">Referral promotion</p>
                     <div class="promote-block">
-                        <div style="height: 20px; display: flex; width: 120px; align-items: center; margin: 0 0 0 43px;">
-                            <div style="margin: 2px 2px 0px 0px;">
-                                <img src="public/ton.svg" alt="Path">
-                            </div>
-                            <div>
-                                <p class="promote-name">Promotion</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="promote-comment">If you invite 5 friends who stake their assets, you will receive 150 TON</p>
-                        </div>
-                    </div>
 
-                    <div class="referral-block">
-                        <p class="referral-title">Invite friends</p>
-                        <p class="referral-count">Friends invited: {{ referralCount }}</p>
-                        <div class="referral-link-container">
-                            <input type="text" class="referral-link" :value="referralLink" readonly />
-                            <button @click="copyReferralLink" class="copy-btn">Copy</button>
-                        </div>
                     </div>
-                </div>  
-                <NuxtLink to="/main">
-                    <p class="auth-txt">Back home page</p>
-                </NuxtLink>
+                </div>
+                </div>
+                
+              </div>
             </div>
         </Transition>
     </div>
@@ -134,6 +131,7 @@ export default {
         } else {
           this.user = null;
           this.userName = null;
+          this.userEmail = null; // Add this line
           this.userBalance = 0;
           this.referralCount = 0;
           this.referralCode = '';
@@ -158,13 +156,13 @@ export default {
         if (user) {
           this.user = user;
           this.userName = user.user_metadata.full_name || user.email;
+          this.userEmail = user.email; // Add this line to set the userEmail
           await this.fetchUserProfile(user.id);
         }
       } catch (error) {
         console.error("Общая ошибка при получении пользователя:", error);
       }
     },
-
     async fetchUserProfile(userId) {
       try {
         const { data, error } = await supabase
@@ -361,6 +359,7 @@ export default {
           console.log('Выход из системы успешен');
           this.user = null;
           this.userName = null;
+          this.userEmail = null; // Add this line
           this.userBalance = 0;
           this.referralCount = 0;
           this.referralCode = '';
@@ -385,15 +384,13 @@ export default {
 }
 
 .profile-backround {
-    background: #1D61E7;
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    justify-content: center;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
+  background-image: url(public/profile.svg);
+  width: 100%;
+  height: 100vh;
+  background-position: center; /* Фиксирует изображение по центру */
+  background-size: cover; /* Масштабирует изображение так, чтобы оно покрывало всю область, обрезая лишнее */
+  background-repeat: no-repeat; 
+  justify-content: flex-start;
 }
 
 .profile-block {
@@ -410,9 +407,20 @@ export default {
     align-items: center;
 }
 
+
+
+.profile-info-block {
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .profile-img {
-    width: 68px;
-    height: 68px;
+    width: 120px;
+    height: 120px;
     transform: translateY(-34px);
     margin: 0px 0px 0px 0px;
     position: absolute;
@@ -439,7 +447,7 @@ export default {
     line-height: 32px;
     letter-spacing: 0%;
     text-align: center;
-    margin: 48px 0px 0px 0px;
+    margin: 100px 0px 0px 0px;
 }
 
 .profile-email {
@@ -489,7 +497,7 @@ export default {
     line-height: 20px;
     letter-spacing: -1%;
     text-align: center;
-    width: 295px;
+    width: 335px;
     height: 26px;
     margin: 36px 0px 0px 0px;
 }
@@ -504,16 +512,6 @@ export default {
     text-align: center;
     width: 87px;
     height: 20px;
-}
-
-.promote-block {
-    background-image: url(public/tons.png);
-    width: 295px;
-    height: 114px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 6px;
 }
 
 .promote-comment {
@@ -648,4 +646,28 @@ export default {
     opacity: 1;
 }
 
+.profil-set {
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255);
+  width: 327px;
+  height: 121px;
+  margin: 14px 0px 0px 0px;
+}
+
+.profile-set-txt {
+  color: #17181C;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 13px;
+  text-align: center;
+}
+
+.promote-block {
+  background-image: url(public/backton.svg);
+  width: 335px;
+  height: 225px;
+  background-position: center;
+}
 </style>

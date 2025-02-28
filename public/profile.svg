@@ -1,0 +1,346 @@
+<svg width="375.000000" height="812.000000" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip12_1653">
+			<rect id="Star" width="376.000000" height="812.000000" transform="translate(-1.000000 0.000000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<filter id="filter_12_2056_dd" x="36.266602" y="-152.551270" width="496.019531" height="527.606934" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+			<feGaussianBlur stdDeviation="21.2444" result="effect_layerBlur_1"/>
+		</filter>
+		<clipPath id="clip12_1652">
+			<rect id="Login Version 7" width="375.000000" height="812.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<radialGradient gradientTransform="translate(199 144.369) rotate(90) scale(376.812 876.393)" cx="0.000000" cy="0.000000" r="1.000000" id="paint_Diamond_12_1654_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFFFFF"/>
+			<stop offset="1.000000" stop-color="#D9D9D9" stop-opacity="0.000000"/>
+		</radialGradient>
+		<linearGradient x1="237.826218" y1="237.179291" x2="359.855804" y2="-0.321938" id="paint_linear_12_2056_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFFFFF" stop-opacity="0.000000"/>
+			<stop offset="1.000000" stop-color="#FFFFFF"/>
+		</linearGradient>
+	</defs>
+	<rect id="Login Version 7" width="375.000000" height="812.000000" fill="#2F6DE9" fill-opacity="1.000000"/>
+	<g clip-path="url(#clip12_1652)">
+		<g clip-path="url(#clip12_1653)">
+			<mask id="mask12_1654" mask-type="alpha" maskUnits="userSpaceOnUse" x="-321.000000" y="-155.000000" width="1040.000000" height="692.000000">
+				<rect id="Rectangle 2" x="-321.000000" y="-155.000000" width="1040.000000" height="692.000000" fill="url(#paint_Diamond_12_1654_0)" fill-opacity="1.000000"/>
+			</mask>
+			<g mask="url(#mask12_1654)">
+				<g opacity="0.700000">
+					<circle id="Star, Round, 2.36" cx="316.617188" cy="280.363281" r="0.699952" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.60" cx="-157.486816" cy="385.210938" r="0.768219" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.52" cx="439.203613" cy="385.189453" r="0.746756" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.30" cx="431.439453" cy="55.393555" r="0.680419" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.93" cx="72.297363" cy="205.940918" r="0.866106" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.35" cx="417.839844" cy="156.635742" r="0.695447" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.10" cx="546.815430" cy="0.871582" r="0.620176" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.04" cx="543.840820" cy="38.742676" r="0.605185" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.16" cx="5.769531" cy="229.393555" r="0.639683" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.06" cx="198.131836" cy="418.796875" r="0.610874" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.92" cx="399.065430" cy="-62.226074" r="0.864013" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.37" cx="148.496094" cy="340.744629" r="0.700234" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.83" cx="343.985352" cy="302.995605" r="0.837128" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.72" cx="-175.209961" cy="160.297852" r="0.805481" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.10" cx="1.608887" cy="168.993652" r="0.621616" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.54" cx="423.814941" cy="341.386719" r="0.750487" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.77" cx="17.788086" cy="384.669922" r="0.818832" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.62" cx="7.090332" cy="433.168945" r="0.776743" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.67" cx="-45.581543" cy="250.262207" r="0.789616" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.03" cx="14.018066" cy="-7.436035" r="0.600228" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.33" cx="133.095703" cy="100.393066" r="0.690477" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.25" cx="624.410156" cy="195.085449" r="0.666448" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.57" cx="12.403809" cy="50.739258" r="0.762110" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.32" cx="523.793945" cy="237.726562" r="0.685602" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.59" cx="583.073242" cy="359.755859" r="0.767703" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.16" cx="180.993164" cy="292.732422" r="0.637879" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.02" cx="259.685059" cy="269.012695" r="0.596974" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.35" cx="228.999023" cy="385.729492" r="0.694188" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.36" cx="75.681152" cy="424.802734" r="0.697257" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.17" cx="5.182129" cy="430.668945" r="0.643604" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.35" cx="69.167969" cy="43.570312" r="0.696910" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.29" cx="501.884766" cy="82.030762" r="0.678941" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.57" cx="445.729492" cy="335.478516" r="0.761349" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.63" cx="30.180176" cy="381.670410" r="0.778728" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.50" cx="-81.742188" cy="276.259277" r="0.739094" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.79" cx="570.700195" cy="44.291504" r="0.826282" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.91" cx="529.296875" cy="22.422363" r="0.860139" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.91" cx="462.997070" cy="388.264648" r="0.862762" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.05" cx="-146.991699" cy="271.391602" r="0.607352" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.98" cx="236.884766" cy="334.416016" r="0.882725" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.41" cx="-139.190918" cy="131.199219" r="0.713583" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.61" cx="604.981445" cy="402.975586" r="0.772560" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.40" cx="262.167480" cy="102.190430" r="0.711451" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="294.052246" cy="-33.452637" r="0.630880" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.39" cx="126.599609" cy="396.396484" r="0.706451" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.96" cx="4.822754" cy="249.756836" r="0.876195" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.05" cx="580.544922" cy="380.904785" r="0.606008" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.93" cx="371.245117" cy="419.644531" r="0.866262" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.55" cx="-50.946289" cy="108.744141" r="0.753476" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.23" cx="-100.174316" cy="398.125977" r="0.658948" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.79" cx="-162.758789" cy="197.611328" r="0.824928" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.63" cx="586.046875" cy="387.590820" r="0.779903" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.53" cx="-199.534668" cy="40.663574" r="0.749950" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.70" cx="591.393555" cy="109.974609" r="0.799864" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.65" cx="232.049316" cy="440.874023" r="0.784851" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.95" cx="429.267578" cy="263.370605" r="0.874410" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.56" cx="313.122070" cy="393.487305" r="0.756572" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.98" cx="-176.315918" cy="405.452148" r="0.881616" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.30" cx="-122.055664" cy="24.018555" r="0.680851" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.34" cx="122.442871" cy="115.195801" r="0.693902" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.27" cx="372.827148" cy="63.672363" r="0.671636" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.66" cx="-171.083984" cy="114.696777" r="0.786644" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.46" cx="1.122559" cy="28.803223" r="0.729233" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.08" cx="-204.996582" cy="304.549805" r="0.615152" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.50" cx="-79.966797" cy="385.182617" r="0.739944" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.89" cx="-207.126465" cy="260.390625" r="0.854262" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.61" cx="394.239258" cy="331.346680" r="0.773604" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.99" cx="574.902344" cy="259.828613" r="0.884020" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.33" cx="227.811035" cy="96.249512" r="0.689881" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.93" cx="525.752930" cy="304.210938" r="0.868239" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.13" cx="611.351562" cy="-47.660156" r="0.631008" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.59" cx="132.578125" cy="152.561523" r="0.765212" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.34" cx="-91.259766" cy="-51.148926" r="0.693263" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.94" cx="111.963379" cy="391.825195" r="0.869681" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.39" cx="-133.869629" cy="173.813965" r="0.706219" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.10" cx="134.211914" cy="449.590820" r="0.622984" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.32" cx="-157.566895" cy="362.044434" r="0.687916" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.01" cx="-15.585938" cy="321.104492" r="0.594530" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.35" cx="150.859863" cy="444.335938" r="0.695627" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.44" cx="472.919922" cy="161.990234" r="0.721777" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.43" cx="205.936523" cy="78.518066" r="0.718168" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.34" cx="-90.669922" cy="146.569824" r="0.692602" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.86" cx="47.415039" cy="358.651367" r="0.846790" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.11" cx="598.912109" cy="-74.305664" r="0.623355" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.67" cx="560.008789" cy="313.604980" r="0.790504" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.68" cx="-62.746582" cy="181.596191" r="0.792693" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.51" cx="604.361328" cy="-46.362305" r="0.744060" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.90" cx="111.952637" cy="435.619141" r="0.858873" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.29" cx="-111.404785" cy="379.199707" r="0.676725" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.12" cx="75.611816" cy="314.034180" r="0.627863" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.58" cx="618.587891" cy="361.526855" r="0.763013" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.42" cx="77.474609" cy="325.369629" r="0.715796" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.90" cx="-136.676270" cy="44.916504" r="0.859551" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.65" cx="-118.991699" cy="-17.315430" r="0.784892" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.28" cx="335.534180" cy="402.284180" r="0.674169" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.88" cx="301.378906" cy="254.469238" r="0.852779" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.67" cx="282.963379" cy="-56.973145" r="0.789301" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="-182.486816" cy="112.766113" r="0.631248" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.29" cx="-48.652832" cy="55.391602" r="0.678395" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.19" cx="-67.033691" cy="214.011719" r="0.649184" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.75" cx="-166.913086" cy="331.978027" r="0.812946" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.46" cx="584.218750" cy="417.137695" r="0.728750" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.23" cx="158.522461" cy="320.579102" r="0.661517" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.93" cx="-149.098633" cy="60.316895" r="0.868219" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.90" cx="42.691406" cy="349.783691" r="0.859218" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.91" cx="420.965332" cy="308.938477" r="0.860690" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.33" cx="-142.174805" cy="418.283203" r="0.689281" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.35" cx="186.971191" cy="228.266602" r="0.696622" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.03" cx="6.324219" cy="422.931641" r="0.602129" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.35" cx="90.478516" cy="402.305664" r="0.695275" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.54" cx="491.298828" cy="-66.483398" r="0.750425" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.81" cx="354.042969" cy="117.109863" r="0.831583" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.72" cx="29.613770" cy="183.383789" r="0.804690" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.05" cx="511.877930" cy="37.561523" r="0.607945" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.67" cx="417.935547" cy="455.087891" r="0.790957" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.99" cx="457.692383" cy="418.479492" r="0.885352" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.87" cx="50.969238" cy="235.522949" r="0.848888" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.47" cx="-13.080078" cy="371.560059" r="0.732485" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.71" cx="230.884277" cy="329.600586" r="0.803339" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.32" cx="-108.434082" cy="51.848633" r="0.687688" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.70" cx="-166.335938" cy="112.340820" r="0.798759" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.49" cx="35.465820" cy="8.682617" r="0.735984" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.25" cx="499.503906" cy="311.113770" r="0.667281" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.02" cx="536.137695" cy="189.097656" r="0.597967" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.73" cx="358.754395" cy="191.673340" r="0.806592" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.37" cx="442.708008" cy="-41.670410" r="0.700476" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.72" cx="77.562988" cy="88.075684" r="0.804401" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.24" cx="-162.329102" cy="51.231445" r="0.661886" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.46" cx="-163.447266" cy="447.919922" r="0.727561" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.90" cx="307.896973" cy="250.923828" r="0.859109" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.27" cx="353.291992" cy="26.969238" r="0.671462" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.19" cx="-43.355469" cy="382.131836" r="0.648207" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.18" cx="-158.199707" cy="453.166992" r="0.646599" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.91" cx="16.054199" cy="40.181641" r="0.859953" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.98" cx="396.125488" cy="191.750000" r="0.883488" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.07" cx="387.567383" cy="6.783691" r="0.613019" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.19" cx="109.964844" cy="271.431641" r="0.647362" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.32" cx="486.500977" cy="198.658203" r="0.687175" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.59" cx="424.422852" cy="-29.173340" r="0.766127" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.88" cx="242.771484" cy="57.932129" r="0.851280" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.56" cx="-84.683594" cy="168.538086" r="0.757725" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.91" cx="593.232422" cy="363.993652" r="0.861844" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.87" cx="437.527832" cy="305.374512" r="0.848512" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.99" cx="494.985352" cy="156.232910" r="0.884105" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.62" cx="-100.649414" cy="431.391602" r="0.774807" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.41" cx="120.095215" cy="265.577637" r="0.713183" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.91" cx="393.734375" cy="241.453613" r="0.860193" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.95" cx="291.925781" cy="-49.194336" r="0.872130" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.20" cx="515.471680" cy="74.898438" r="0.650285" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.66" cx="481.275391" cy="141.930176" r="0.788363" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.75" cx="270.557129" cy="223.647461" r="0.813803" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.36" cx="623.850586" cy="305.817871" r="0.699422" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.65" cx="228.498047" cy="392.333008" r="0.785658" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.09" cx="484.659180" cy="-26.359375" r="0.619998" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.72" cx="231.479004" cy="-61.691406" r="0.806501" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.60" cx="-105.392578" cy="116.455566" r="0.769116" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.95" cx="-224.865723" cy="204.173340" r="0.874640" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.27" cx="452.744141" cy="-20.979492" r="0.671665" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.65" cx="348.076172" cy="38.330078" r="0.784446" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.29" cx="285.221191" cy="75.518555" r="0.678364" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.71" cx="129.655273" cy="216.532715" r="0.802016" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.58" cx="55.619629" cy="211.757324" r="0.763236" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.87" cx="272.369141" cy="377.004883" r="0.849438" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.15" cx="304.714844" cy="385.671875" r="0.636609" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.82" cx="490.200195" cy="217.157715" r="0.835339" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.44" cx="-166.413574" cy="244.273926" r="0.720955" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="-74.749023" cy="241.814941" r="0.629980" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.29" cx="244.373047" cy="84.987793" r="0.676482" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.19" cx="160.284180" cy="16.291016" r="0.648472" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.72" cx="-220.791016" cy="165.034180" r="0.805549" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="493.547852" cy="-54.172852" r="0.629702" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.93" cx="349.934082" cy="-46.832520" r="0.866041" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.36" cx="247.355469" cy="250.763672" r="0.698949" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="377.519531" cy="418.223633" r="0.630098" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.82" cx="522.167969" cy="146.712891" r="0.835605" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.64" cx="262.237305" cy="-10.807129" r="0.781325" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.92" cx="-84.577637" cy="-71.105957" r="0.863927" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.19" cx="-40.395020" cy="74.305176" r="0.648945" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.82" cx="528.680664" cy="339.696777" r="0.835486" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.09" cx="-143.428223" cy="240.028809" r="0.620001" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.69" cx="623.946289" cy="279.274902" r="0.795289" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.40" cx="417.264160" cy="-38.108398" r="0.710875" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.86" cx="225.007812" cy="313.068359" r="0.846621" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.92" cx="-46.099609" cy="239.681152" r="0.864448" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.41" cx="7.618652" cy="219.402344" r="0.711873" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.63" cx="391.875488" cy="105.809082" r="0.777782" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.78" cx="593.192383" cy="70.333984" r="0.821954" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.41" cx="-161.091797" cy="-67.703613" r="0.714585" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.72" cx="325.601562" cy="63.213379" r="0.804688" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.57" cx="56.800293" cy="-38.650391" r="0.760276" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.13" cx="-193.735840" cy="83.756836" r="0.629302" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.27" cx="462.213867" cy="195.090332" r="0.671573" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.48" cx="615.004883" cy="393.463867" r="0.733177" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.71" cx="119.592285" cy="124.185059" r="0.803196" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.80" cx="-184.066406" cy="-9.577148" r="0.827435" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.98" cx="155.784180" cy="57.372070" r="0.883131" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.70" cx="399.000977" cy="368.666992" r="0.799150" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.30" cx="-125.015625" cy="377.428223" r="0.680522" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.46" cx="171.609863" cy="100.429688" r="0.727048" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.78" cx="113.102051" cy="253.847656" r="0.823220" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.55" cx="102.969238" cy="57.243652" r="0.754837" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.34" cx="197.623047" cy="-31.614746" r="0.692423" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.04" cx="413.604980" cy="68.932617" r="0.604492" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.17" cx="389.372559" cy="424.747070" r="0.641757" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.63" cx="69.250488" cy="-63.494629" r="0.779238" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.68" cx="480.096680" cy="298.809082" r="0.794387" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.01" cx="-1.970703" cy="275.522949" r="0.595900" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.70" cx="-200.668945" cy="-62.882812" r="0.799171" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.23" cx="-64.061523" cy="183.240723" r="0.661462" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.50" cx="31.325684" cy="-43.999023" r="0.740256" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.97" cx="-44.901855" cy="196.480469" r="0.878035" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.51" cx="-86.474609" cy="3.953613" r="0.742655" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.79" cx="-96.456543" cy="137.229980" r="0.824389" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.85" cx="-127.219238" cy="400.086914" r="0.844477" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.23" cx="-59.919922" cy="-32.832031" r="0.659070" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.60" cx="471.784180" cy="-6.675293" r="0.769151" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.28" cx="-184.219727" cy="-23.937012" r="0.674150" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.93" cx="55.132812" cy="455.756836" r="0.868386" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.88" cx="135.626465" cy="424.958984" r="0.853602" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.23" cx="163.255859" cy="338.337402" r="0.660223" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.88" cx="-168.649902" cy="84.572266" r="0.852533" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.20" cx="-46.902832" cy="356.088379" r="0.651776" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.67" cx="-140.890137" cy="425.486328" r="0.789234" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.07" cx="26.462891" cy="101.500488" r="0.614002" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.36" cx="-72.312500" cy="408.819336" r="0.697610" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.20" cx="214.157715" cy="-69.542480" r="0.651184" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.65" cx="321.437012" cy="-19.092285" r="0.783827" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.64" cx="316.696777" cy="-1.929199" r="0.779980" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.36" cx="196.444336" cy="266.745605" r="0.697230" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.27" cx="447.415039" cy="350.187500" r="0.671066" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.03" cx="-3.741211" cy="312.229980" r="0.600168" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.34" cx="569.974609" cy="225.893066" r="0.691526" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.66" cx="219.621582" cy="411.277344" r="0.787470" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.16" cx="138.371094" cy="448.423828" r="0.639587" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.43" cx="445.686523" cy="12.809570" r="0.718907" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.02" cx="-126.873535" cy="186.138184" r="0.599347" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.70" cx="180.560547" cy="31.240234" r="0.798039" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.21" cx="595.985352" cy="305.773438" r="0.654800" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.63" cx="436.866211" cy="31.220703" r="0.778497" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.38" cx="38.986328" cy="0.957031" r="0.705573" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.92" cx="512.133789" cy="272.239746" r="0.864459" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.70" cx="-226.125000" cy="134.244629" r="0.798916" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.87" cx="96.551270" cy="59.705566" r="0.848304" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.38" cx="-66.385254" cy="0.956543" r="0.705271" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.12" cx="326.016602" cy="410.526367" r="0.628061" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.39" cx="462.842773" cy="4.511230" r="0.707881" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.07" cx="196.951172" cy="260.741211" r="0.613189" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.52" cx="96.449219" cy="313.560547" r="0.745889" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.82" cx="511.513672" cy="284.642578" r="0.835558" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.59" cx="-84.084473" cy="178.608887" r="0.765302" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.38" cx="-153.406250" cy="21.674316" r="0.704188" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.52" cx="-154.549805" cy="287.512695" r="0.745206" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.86" cx="506.196289" cy="22.408203" r="0.846316" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.77" cx="53.899902" cy="304.162598" r="0.819658" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.71" cx="403.148438" cy="250.868164" r="0.803280" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.16" cx="288.732910" cy="57.718750" r="0.637861" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.14" cx="344.967285" cy="343.047852" r="0.634724" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.43" cx="179.298828" cy="64.904297" r="0.719579" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.10" cx="353.834473" cy="440.120117" r="0.622914" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.67" cx="-1.777344" cy="166.201172" r="0.788845" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.08" cx="-46.349609" cy="52.958984" r="0.614225" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.07" cx="251.413574" cy="299.219727" r="0.613337" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.46" cx="268.102539" cy="442.000000" r="0.728020" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.89" cx="415.040527" cy="271.047852" r="0.855675" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.80" cx="266.429688" cy="137.827637" r="0.830232" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.56" cx="-71.662109" cy="157.289551" r="0.756783" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.57" cx="-195.379395" cy="22.916504" r="0.761998" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.14" cx="336.084961" cy="1.476074" r="0.632627" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.82" cx="351.086914" cy="-51.006836" r="0.835557" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.11" cx="-191.374023" cy="266.079590" r="0.623088" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.50" cx="-127.916992" cy="-65.902832" r="0.739354" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.50" cx="-24.913086" cy="218.836914" r="0.738579" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.22" cx="383.467773" cy="217.570801" r="0.656771" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.61" cx="57.997070" cy="75.021973" r="0.773981" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.14" cx="615.500000" cy="33.444824" r="0.634601" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.39" cx="-56.319336" cy="259.651367" r="0.706692" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.23" cx="-221.528320" cy="26.957031" r="0.659243" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.32" cx="-25.556641" cy="451.431641" r="0.687795" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.42" cx="542.176758" cy="415.350586" r="0.716353" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.08" cx="77.373535" cy="9.153809" r="0.614725" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.10" cx="193.409668" cy="402.825195" r="0.622524" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.77" cx="120.202148" cy="76.252441" r="0.820446" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.51" cx="545.754883" cy="50.128418" r="0.743150" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.16" cx="179.217285" cy="330.619629" r="0.638211" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.56" cx="196.505371" cy="321.268066" r="0.758062" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.01" cx="124.120117" cy="5.581055" r="0.593954" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.06" cx="583.508789" cy="98.537598" r="0.610576" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.32" cx="-204.334473" cy="125.844727" r="0.686402" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.61" cx="52.076172" cy="109.946289" r="0.771508" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.48" cx="245.022949" cy="161.411621" r="0.734636" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.68" cx="-44.395508" cy="1.635254" r="0.792169" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.53" cx="590.159180" cy="278.044434" r="0.749127" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.31" cx="623.833984" cy="26.389160" r="0.682976" fill="#FFFFFF" fill-opacity="0.300000"/>
+					<circle id="Star, Round, 2.95" cx="220.299316" cy="-61.625000" r="0.872842" fill="#FFFFFF" fill-opacity="0.600000"/>
+					<circle id="Star, Round, 2.19" cx="-43.947754" cy="-16.269043" r="0.646741" fill="#FFFFFF" fill-opacity="0.500000"/>
+					<circle id="Star, Round, 2.04" cx="-223.361328" cy="354.854492" r="0.602674" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.07" cx="-218.024414" cy="181.416016" r="0.612114" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.58" cx="540.448242" cy="-16.152832" r="0.763195" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.49" cx="214.834473" cy="334.863281" r="0.737588" fill="#FFFFFF" fill-opacity="0.400000"/>
+					<circle id="Star, Round, 2.34" cx="125.992188" cy="101.578613" r="0.692114" fill="#FFFFFF" fill-opacity="0.500000"/>
+				</g>
+			</g>
+			<g mask="url(#mask12_1654)">
+				<g opacity="0.600000">
+					<g opacity="0.100000"/>
+				</g>
+			</g>
+		</g>
+		<g filter="url(#filter_12_2056_dd)">
+			<path id="Light" d="M100 163.03L375.65 311.32L468.55 -5.01L312.74 -88.82L100 163.03Z" fill="url(#paint_linear_12_2056_0)" fill-opacity="0.150000" fill-rule="nonzero"/>
+		</g>
+	</g>
+</svg>
