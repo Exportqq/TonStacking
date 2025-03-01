@@ -253,7 +253,7 @@ export default {
         ]);
 
         if (sessionError) {
-          console.error("Ошибка при получении сессии:", sessionError);
+          console.error("Error getting session:", sessionError);
           return;
         }
 
@@ -268,7 +268,7 @@ export default {
           this.referralLink = '';
         }
       } catch (error) {
-        console.error("Общая ошибка при проверке сессии:", error);
+        console.error("General error when checking session:", error);
       } finally {
         this.isLoading = false;
       }
@@ -279,7 +279,7 @@ export default {
         const { data: { user }, error: userError } = await supabase.auth.getUser();
 
         if (userError) {
-          console.error("Ошибка при получении данных пользователя:", userError);
+          console.error("Error retrieving user data:", userError);
           return;
         }
 
@@ -289,7 +289,7 @@ export default {
           await this.fetchUserProfile(user.id);
         }
       } catch (error) {
-        console.error("Общая ошибка при получении пользователя:", error);
+        console.error("General error while getting user:", error);
       }
     },
 
@@ -302,8 +302,8 @@ export default {
           .single();
 
         if (error) {
-          console.error("Ошибка при получении профиля пользователя:", error);
-          this.userBalance = 'Ошибка загрузки';
+          console.error("Error getting user profile:", error);
+          this.userBalance = 'Loading error';
         } else if (data) {
           this.userBalance = data.balance || 0;
           this.referralCode = data.referral_code || '';
@@ -317,18 +317,18 @@ export default {
           this.referralLink = '';
         }
       } catch (error) {
-        console.error("Общая ошибка при получении профиля пользователя:", error);
-        this.userBalance = 'Ошибка загрузки';
+        console.error("General error when retrieving user profile:", error);
+        this.userBalance = 'Loading error';
       }
     },
 
     async copyReferralLink() {
       try {
         await navigator.clipboard.writeText(this.referralLink);
-        alert('Реферальная ссылка скопирована!');
+        alert('Referral link copied!');
       } catch (err) {
-        console.error('Не удалось скопировать ссылку: ', err);
-        alert('Не удалось скопировать ссылку. Попробуйте скопировать вручную.');
+        console.error('Failed to copy link: ', err);
+        alert('Failed to copy link. Try copying manually.');
       }
     },
 
@@ -359,10 +359,10 @@ export default {
         ]);
 
         if (error) {
-          console.error('Ошибка регистрации:', error);
+          console.error('Registration error:', error);
           this.registrationError = error.message;
         } else {
-          console.log('Регистрация успешна:', data);
+          console.log('Registration successful:', data);
           this.registrationSuccess = true;
           
           await this.createUserProfile(data.user.id, this.registrationForm.name);
@@ -374,8 +374,8 @@ export default {
           this.registrationForm = { name: '', email: '', password: '' };
         }
       } catch (error) {
-        console.error('Общая ошибка при регистрации:', error);
-        this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+        console.error('General registration error:', error);
+        this.registrationError = 'There was an error registering. Please try again later.';
       } finally {
         this.isLoading = false;
       }
@@ -396,14 +396,14 @@ export default {
           }]);
 
         if (error) {
-          console.error("Ошибка при создании профиля пользователя:", error);
-          alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+          console.error("Error creating user profile:", error);
+          alert('Registration was successful, but an error occurred while creating your profile. Please contact support.');
         } else {
-          console.log("Профиль пользователя создан успешно");
+          console.log("User profile created successfully");
         }
       } catch (error) {
-        console.error("Общая ошибка при создании профиля пользователя:", error);
-        alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+        console.error("General error when creating a user profile:", error);
+        alert('Registration was successful, but an error occurred while creating your profile. Please contact support.');
       }
     },
 
@@ -416,7 +416,7 @@ export default {
           .single();
 
         if (fetchError) {
-          console.error("Ошибка при поиске реферера:", fetchError);
+          console.error("Error searching for referrer:", fetchError);
           return;
         }
 
@@ -429,13 +429,13 @@ export default {
             .eq('id', referrer.id);
 
           if (updateError) {
-            console.error("Ошибка при обновлении счетчика рефералов:", updateError);
+            console.error("Error updating referral counter:", updateError);
           } else {
-            console.log("Счетчик рефералов успешно обновлен");
+            console.log("Referral counter successfully updated");
           }
         }
       } catch (error) {
-        console.error("Общая ошибка при обновлении счетчика рефералов:", error);
+        console.error("General error when updating referral counter:", error);
       }
     },
 
@@ -455,17 +455,17 @@ export default {
         ]);
 
         if (error) {
-          console.error('Ошибка авторизации:', error);
+          console.error('Authorization error:', error);
           this.loginError = error.message;
         } else {
-          console.log('Авторизация успешна:', data);
+          console.log('Authorization successful:', data);
           this.loginForm = { email: '', password: '' };
           await this.fetchUser();
           await this.checkSession();
         }
       } catch (error) {
-        console.error('Общая ошибка при авторизации:', error);
-        this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
+        console.error('General authorization error:', error);
+        this.loginError = 'There was an error authorizing you. Please try again later.';
       } finally {
         this.isLoading = false;
       }
@@ -484,9 +484,9 @@ export default {
         ]);
 
         if (error) {
-          console.error('Ошибка выхода из системы:', error);
+          console.error('Logout error:', error);
         } else {
-          console.log('Выход из системы успешен');
+          console.log('Logout successful');
           this.user = null;
           this.userName = null;
           this.userBalance = 0;
@@ -496,7 +496,7 @@ export default {
           router.push({ path: "/" });
         }
       } catch (error) {
-        console.error('Общая ошибка при выходе из системы:', error);
+        console.error('General error when logging out:', error);
       } finally {
         this.isLoading = false;
         await this.checkSession();

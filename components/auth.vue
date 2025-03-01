@@ -86,7 +86,7 @@ export default {
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
 
         if (sessionError) {
-          console.error("Ошибка при получении сессии:", sessionError);
+          console.error("Error getting session:", sessionError);
           return;
         }
 
@@ -98,7 +98,7 @@ export default {
           this.userBalance = 0; // Сбрасываем баланс при отсутствии пользователя
         }
       } catch (error) {
-        console.error("Общая ошибка при проверке сессии:", error);
+        console.error("General error when checking session:", error);
       } finally {
         this.isLoading = false;
       }
@@ -109,7 +109,7 @@ export default {
         const { data: { user }, error: userError } = await supabase.auth.getUser();
 
         if (userError) {
-          console.error("Ошибка при получении данных пользователя:", userError);
+          console.error("Error retrieving user data:", userError);
           return;
         }
 
@@ -119,7 +119,7 @@ export default {
           await this.fetchUserProfile(user.id); // Получаем профиль пользователя и баланс
         }
       } catch (error) {
-        console.error("Общая ошибка при получении пользователя:", error);
+        console.error("General error while getting user:", error);
       }
     },
 
@@ -132,16 +132,16 @@ export default {
           .single();
 
         if (error) {
-          console.error("Ошибка при получении профиля пользователя:", error);
-          this.userBalance = 'Ошибка загрузки'; // Обработка ошибки баланса
+          console.error("Error getting user profile:", error);
+          this.userBalance = 'Loading error'; // Обработка ошибки баланса
         } else if (data) {
           this.userBalance = data.balance || 0; // Используем полученный баланс или 0 по умолчанию
         } else {
           this.userBalance = 0; // Профиль не найден, устанавливаем баланс в 0
         }
       } catch (error) {
-        console.error("Общая ошибка при получении профиля пользователя:", error);
-        this.userBalance = 'Ошибка загрузки'; // Общая ошибка при загрузке баланса
+        console.error("General error when retrieving user profile:", error);
+        this.userBalance = 'Loading error'; // Общая ошибка при загрузке баланса
       }
     },
 
@@ -157,18 +157,18 @@ export default {
         if (error) {
           this.catchError = 'Incorrect password or email'
           this.triggerError();
-          console.error('Ошибка авторизации:', error);
+          console.error('Authorization error:', error);
           this.loginError = error.message;
         } else {
-          console.log('Авторизация успешна:', data);
+          console.log('Authorization successful:', data);
           this.loginForm = { email: '', password: '' };
           await this.fetchUser();
           await this.checkSession();
           router.push({ path: "/main" })
         }
       } catch (error) {
-        console.error('Общая ошибка при авторизации:', error);
-        this.loginError = 'Произошла ошибка при авторизации. Пожалуйста, попробуйте позже.';
+        console.error('General authorization error:', error);
+        this.loginError = 'There was an error authorizing you. Please try again later.';
       } finally {
         this.isLoading = false;
       }
@@ -185,15 +185,15 @@ export default {
       try {
         const { error } = await supabase.auth.signOut();
         if (error) {
-          console.error('Ошибка выхода из системы:', error);
+          console.error('Logout error:', error);
         } else {
-          console.log('Выход из системы успешен');
+          console.log('Logout successful');
           this.user = null;
           this.userName = null;
           this.userBalance = 0; // Сбрасываем баланс при выходе
         }
       } catch (error) {
-        console.error('Общая ошибка при выходе из системы:', error);
+        console.error('General error when logging out:', error);
       } finally {
         this.isLoading = false;
         await this.checkSession();

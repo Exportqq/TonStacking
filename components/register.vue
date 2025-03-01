@@ -105,7 +105,7 @@ export default {
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
 
         if (sessionError) {
-          console.error("Ошибка при получении сессии:", sessionError);
+          console.error("Error getting session:", sessionError);
           return;
         }
 
@@ -117,7 +117,7 @@ export default {
           this.userBalance = 0;
         }
       } catch (error) {
-        console.error("Общая ошибка при проверке сессии:", error);
+        console.error("General error when checking session:", error);
       }
     },
 
@@ -126,7 +126,7 @@ export default {
         const { data: { user }, error: userError } = await supabase.auth.getUser();
 
         if (userError) {
-          console.error("Ошибка при получении данных пользователя:", userError);
+          console.error("Error retrieving user data:", userError);
           return;
         }
 
@@ -137,7 +137,7 @@ export default {
           await this.fetchUserProfile(user.id);
         }
       } catch (error) {
-        console.error("Общая ошибка при получении пользователя:", error);
+        console.error("General error while getting user:", error);
       }
     },
 
@@ -150,8 +150,8 @@ export default {
           .single();
 
         if (error) {
-          console.error("Ошибка при получении профиля пользователя:", error);
-          this.userBalance = 'Ошибка загрузки';
+          console.error("Error getting user profile:", error);
+          this.userBalance = 'Loading error';
         } else if (data) {
           this.userBalance = data.balance || 0;
           this.referredBy = data.referred_by || ''; // Сохраняем реферальный код
@@ -160,8 +160,8 @@ export default {
           this.referredBy = ''; // Сохраняем реферальный код
         }
       } catch (error) {
-        console.error("Общая ошибка при получении профиля пользователя:", error);
-        this.userBalance = 'Ошибка загрузки';
+        console.error("General error when retrieving user profile:", error);
+        this.userBalance = 'Loading error';
         this.referredBy = ''; // Сохраняем реферальный код
       }
     },
@@ -190,10 +190,10 @@ export default {
           if (error) {
             this.catchError = 'Password is not less than 6 characters or this email is busy'
             this.triggerError();
-            console.error('Ошибка регистрации:', error);
+            console.error('Registration error:', error);
             this.registrationError = error.message;
           } else {
-            console.log('Регистрация успешна:', data);
+            console.log('Registration successful:', data);
             this.registrationSuccess = true;
             this.requestSuccess = true; // Устанавливаем сразу после успешной регистрации
 
@@ -212,8 +212,8 @@ export default {
             //router.push({ path: "/Tonlog" })
           }
         } catch (error) {
-          console.error('Общая ошибка при регистрации:', error);
-          this.registrationError = 'Произошла ошибка при регистрации. Пожалуйста, попробуйте позже.';
+          console.error('General registration error:', error);
+          this.registrationError = 'There was an error registering. Please try again later.';
           setTimeout(() => {
             this.requestSuccess = false; // Закрываем модальное окно через 5 секунд в случае ошибки
           }, 5000);
@@ -237,10 +237,10 @@ export default {
           }]);
 
         if (error) {
-          console.error("Ошибка при создании профиля пользователя:", error);
-          alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+          console.error("Error creating user profile:", error);
+          alert('Registration was successful, but an error occurred while creating your profile. Please contact support.');
         } else {
-          console.log("Профиль пользователя создан успешно");
+          console.log("User profile created successfully");
 
           // Обрабатываем реферальный код, если он был в URL
           if (this.referrerCode) {
@@ -248,8 +248,8 @@ export default {
           }
         }
       } catch (error) {
-        console.error("Общая ошибка при создании профиля пользователя:", error);
-        alert('Регистрация прошла успешно, но возникла ошибка при создании профиля. Обратитесь в поддержку.');
+        console.error("General error when creating a user profile:", error);
+        alert('Registration was successful, but an error occurred while creating your profile. Please contact support.');
       }
     },
 
@@ -264,7 +264,7 @@ export default {
           .single();
 
         if (fetchError) {
-          console.error("Ошибка при поиске реферера:", fetchError);
+          console.error("Error searching for referrer:", fetchError);
           return;
         }
 
@@ -278,13 +278,13 @@ export default {
             .eq('id', referrer.id);
 
           if (updateError) {
-            console.error("Ошибка при обновлении счетчика рефералов:", updateError);
+            console.error("Error updating referral counter:", updateError);
           } else {
-            console.log("Счетчик рефералов успешно обновлен");
+            console.log("Referral counter successfully updated");
           }
         }
       } catch (error) {
-        console.error("Общая ошибка при обновлении счетчика рефералов:", error);
+        console.error("General error when updating referral counter:", error);
       }
     }
   }

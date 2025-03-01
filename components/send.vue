@@ -99,15 +99,15 @@
           ]);
 
         if (error) {
-          console.error('Ошибка отправки данных:', error);
+          console.error('Error sending data:', error);
         } else {
-          console.log('Данные отправлены успешно:', data);
+          console.log('Data sent successfully:', data);
           setTimeout(() => {
               this.requestSuccess = false;
             }, 5000);
         }
       } catch (error) {
-        console.error('Общая ошибка при отправке данных:', error);
+        console.error('General error sending data:', error);
       }
     }
   }

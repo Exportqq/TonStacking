@@ -93,10 +93,10 @@
       copyAddress() {
         navigator.clipboard.writeText(this.fullAddressText)
           .then(() => {
-            alert('Адрес скопирован!'); 
+            alert('Address copied!'); 
           })
           .catch(err => {
-            console.error('Не удалось скопировать адрес:', err);
+            console.error('Failed to copy address:', err);
           });
       },
       async submitRequest() {
@@ -106,7 +106,7 @@
         try {
           const user = await supabase.auth.getUser();
           if (!user.data.user) {
-            throw new Error("Пользователь не авторизован");
+            throw new Error("User is not authorized");
           }
   
           const { error } = await supabase
@@ -120,10 +120,10 @@
             ]);
   
           if (error) {
-            console.error('Ошибка при отправке запроса:', error);
+            console.error('Error sending request:', error);
             this.requestError = error.message;
           } else {
-            console.log('Запрос успешно отправлен');
+            console.log('Request sent successfully');
             this.requestSuccess = true;
             this.requestForm.productName = ''; 
             setTimeout(() => {
@@ -131,8 +131,8 @@
             }, 5000);
           }
         } catch (error) {
-          console.error('Общая ошибка при отправке запроса:', error);
-          this.requestError = 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже.';
+          console.error('General error when sending request:', error);
+          this.requestError = 'There was an error sending your request. Please try again later.';
         }
       }
     }
