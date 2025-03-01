@@ -19,7 +19,7 @@
                   <div class="form-block-lowton">
                       <span class="shortened-address-lowton">{{ shortenedAddress }}</span>
                       <p class="copy-text" @click="copyAddress">Скопировать адрес</p>
-                      <span ref="fullAddress" style="display: none;">UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S</span>
+                      <span ref="fullAddress" style="display: none;">UQDdeRR9f0WeKGi5CJafRLqdPRSxgr1UZEYojzkqOEAlWHvu</span>
                   </div>
   
                   <p class="form-lowton-two">Sender's address</p>

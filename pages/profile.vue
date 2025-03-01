@@ -26,7 +26,7 @@
                   <p class="profile-email">{{ userEmail }}</p>
                   <div class="profil-set">
                     <div style="margin: 14px 0px 0px 16px;">
-                      <NuxtLink>
+                      <NuxtLink to="https://t.me/StakerSupport">
                         <button style="display: flex;align-items: center;">
                           <img style="height: 24px; width: 24px;" src="public/support.svg">
                           <p class="profile-set-txt">Help & Support</p>

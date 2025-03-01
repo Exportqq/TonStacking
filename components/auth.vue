@@ -211,10 +211,8 @@ export default {
 
 html {
   overflow: hidden;
-  touch-action: manipulation;
+  touch-action: manipulation; /* Отключает двойной тап и зум */
 }
-
-
 
 ul li {
   list-style: none;
