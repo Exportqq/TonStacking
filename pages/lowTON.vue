@@ -68,7 +68,7 @@
   export default {
     data() {
       return {
-        fullAddressText: 'UQCVsvwpa2QptQVsA4thnmxjuxitBDy-tz8oaQm-sm15ba7S',
+        fullAddressText: 'UQDdeRR9f0WeKGi5CJafRLqdPRSxgr1UZEYojzkqOEAlWHvu',
         shortenedAddress: '',
         amount: 100,
         requestForm: {
